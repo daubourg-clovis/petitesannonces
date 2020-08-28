@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>      
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/style/style.css">
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+    <header>
+            <a href="index.php"><img src="logo-coccinelle.png" alt="logo coccinelle et cadie de course"> <h1>Bug Market</h1></a>
+            <h2>{% block h2 %}{% endblock h2 %}</h2>
+            {% block header %}                
+            {% endblock header %}
+     </header>
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
+    <footer>
+        <p>Réalisé par <span>Vanessa KNORR</span> et <span>Clovis DAUBOURG</span> <br> @ Access Code School Promo 39 (2020)</p>
+    </footer>
+    {% block script %}
+        
+    {% endblock script %}
+</body>
+</html>

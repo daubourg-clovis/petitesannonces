@@ -1,11 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-   <h1> hello world </h1>
-</body>
-</html>
+{% extends "base.html.twig" %}
+{% block h2 %}Annonces{% endblock h2 %}
+{% block header %}
+    <div>
+        <p>Catégories</p>
+        <form action="search.php">
+            <input type="search" name="search" id="search" placeholder="Rechercher">
+            <input type="submit" value="?">
+        </form>
+        <a href="add.php">Déposer une annonce +</a>
+    </div>
+{% endblock header %}
+{% block content %}    
+    {% for annonce in annonces %}
+        <a href="detais.php?{{annonce.id}}">
+            <div class="seeDetails">
+                <p><img src="{{annonce.img}}" alt=""></p>
+                <div>
+                    <h3>{{annonce.name}}</h3>
+                    <p>{{annonce.prix}}</p>
+                    <p>{{annonce.categorie}}</p>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+{% endblock content %}
