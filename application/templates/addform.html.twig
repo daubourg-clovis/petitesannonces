@@ -1,6 +1,38 @@
 {% extends "base.html.twig" %}
 {% block title %}Ajouter{% endblock title %}
-{% block h2 %}
-    Ajouter
-{% endblock h2 %}
-<a href=""></a>
+<div>
+    {% block h2 %}Ajouter{% endblock h2 %}
+    <a href="index.php"><img src="home.png" alt="bouton maison"></a>
+</div>
+{% block content %}
+    <form action="add.php" method="post">
+        <label for="surname">Nom</label>
+        <input type="text" name="surname" id="surname">
+
+        <label for="firstname">Prénom</label>
+        <input type="text" name="firstname" id="firstname">
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email">
+
+        <label for="phone">Téléphone</label>
+        <input type="text" name="phone" id="phone">
+
+        <select name="category" id="category">
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+        </select>
+
+        <label for="details">Texte de l'annonce</label>
+        <textarea name="details" id="details" cols="30" rows="10"></textarea>
+
+        <input type="file">
+        
+        <input type="submit" value="Valider">
+    </form>
+{% endblock content %}
+
