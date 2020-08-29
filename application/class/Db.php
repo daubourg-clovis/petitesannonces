@@ -5,7 +5,7 @@ namespace App;
 class Db {
 	private $login;
 	private $password;
-	private $connect;
+	public $connect;
 
 	public function __construct(){
 		$this->login = 'root';
@@ -35,7 +35,7 @@ class Db {
 
 	public function q($sql,Array $cond = null){
 		$stmt = $this->connect->prepare($sql);
-
+        var_dump($cond);
 		if($cond){
 			foreach ($cond as $v) {
 				$stmt->bindParam($v[0],$v[1],$v[2]);
