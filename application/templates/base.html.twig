@@ -8,8 +8,13 @@
 </head>
 <body>
     <header>
-            <a href="index.php"><img src="logo-coccinelle.png" alt="logo coccinelle et cadie de course"> <h1>Bug Market</h1></a>
+        {% block nav %}
+        <a href="index.php"><img src="logo-coccinelle.png" alt="logo coccinelle et cadie de course"> <h1>Bug Market</h1></a>
+        <div class="nav">
             <h2>{% block h2 %}{% endblock h2 %}</h2>
+            {% block home %}{% endblock home %}
+        </div>            
+        {% endblock nav %}
             {% block header %}                
             {% endblock header %}
      </header>

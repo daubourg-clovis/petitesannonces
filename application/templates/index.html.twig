@@ -1,4 +1,5 @@
 {% extends "base.html.twig" %}
+{% block title %}Acceuil{% endblock title %}
 {% block h2 %}Annonces{% endblock h2 %}
 {% block header %}
     <div>
@@ -12,12 +13,11 @@
 {% endblock header %}
 {% block content %}    
     {% for annonce in annonces %}
-        <a href="detais.php?{{annonce.id}}">
+        <a href="detail.php?{{annonce.id}}">
             <div class="seeDetails">
                 <p><img src="{{annonce.img}}" alt=""></p>
                 <div>
                     <h3>{{annonce.name}}</h3>
-                    <p>{{annonce.prix}}</p>
                     <p>{{annonce.categorie}}</p>
                 </div>
             </div>
