@@ -3,12 +3,12 @@
 {% block h2 %}Annonces{% endblock h2 %}
 {% block header %}
     <div>
-        <p>Catégories</p>
+        <p>Catégories</p> <p><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M24 18v1h-24v-1h24zm0-6v1h-24v-1h24zm0-6v1h-24v-1h24z" fill="#1040e2"/><path d="M24 19h-24v-1h24v1zm0-6h-24v-1h24v1zm0-6h-24v-1h24v1z"/></svg></p>
         <form action="search.php">
             <input type="search" name="search" id="search" placeholder="Rechercher">
             <input type="submit" value="?">
         </form>
-        <a href="add.php">Déposer une annonce +</a>
+        <a href="add.php">Déposer une annonce <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"/></svg></a>
     </div>
 {% endblock header %}
 {% block content %}    
@@ -24,3 +24,6 @@
         </a>
     {% endfor %}
 {% endblock content %}
+{% block script %}
+        
+{% endblock script %}

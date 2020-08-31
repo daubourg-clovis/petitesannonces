@@ -3,16 +3,34 @@
 <head>      
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/style/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{basepath}}/style/style.css">
     <title>{% block title %}{% endblock title %}</title>
 </head>
 <body>
+
+
     <header>
         {% block nav %}
-        <a href="index.php"><img src="logo-coccinelle.png" alt="logo coccinelle et cadie de course"> <h1>Bug Market</h1></a>
-        <div class="nav">
-            <h2>{% block h2 %}{% endblock h2 %}</h2>
-            {% block home %}{% endblock home %}
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <a href="index.php"><img src="{{basepath}}/style/medias/logo-coccinelle.png" class="logo" alt="logo coccinelle et cadie de course" width="403" height="317"></a>
+                </div>
+                <div class="col-8">
+                    <a href="index.php"><h1>Placeholder Titre</h1></a>
+                </div>
+            </div>
+        </div>
+        <div class="nav container">
+            <div class="row">
+                <div class="col">
+                    <h2>{% block h2 %}{% endblock h2 %}</h2>
+                </div>
+                <div class="col">
+                    {% block home %}{% endblock home %}
+                </div>
+            </div>
         </div>            
         {% endblock nav %}
             {% block header %}                
@@ -25,6 +43,11 @@
     <footer>
         <p>Réalisé par <span>Vanessa KNORR</span> et <span>Clovis DAUBOURG</span> <br> @ Access Code School Promo 39 (2020)</p>
     </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+    <script src="{{basepath}}/script/background.js"></script>
     {% block script %}
         
     {% endblock script %}
