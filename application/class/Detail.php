@@ -4,7 +4,6 @@ require_once('Db.php');
 class Detail{
     
     public static function detail($id){
-        echo "coucou";
         $db=new Db();
         
         $sql='SELECT * FROM annonce WHERE ann_unique_id=:id';
