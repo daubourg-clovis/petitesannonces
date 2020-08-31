@@ -22,6 +22,11 @@ $router->map( 'GET', '/annonces/[i:id]/', function( $id ) {
 	echo "coucou";
 	\App\Detail::detail($id);
 });
+// map ajout
+$router->map( 'GET', '/annonces/ajout/[*:ann_description]/[*:ann_image_url]/[*:ann_image_nom]/[*:ann_est_valider]/[*:ann_date_ecriture]/[*:ann_date_validation]/[*:iD_categorie]/[*:ID_utilisateur]/', function($ann_description,$ann_image_url, $ann_image_nom, $ann_est_valider, $ann_date_ecriture, $ann_date_validation, $iD_categorie, $ID_utilisateur) {
+	echo "coucou";
+	\App\Annonce::ajout($ann_description,$ann_image_url, $ann_image_nom, $ann_est_valider, $ann_date_ecriture, $ann_date_validation, $iD_categorie, $ID_utilisateur);
+});
 
 
 
