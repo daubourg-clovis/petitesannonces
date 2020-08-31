@@ -7,7 +7,6 @@ $router = new AltoRouter();
 
 // map homepage
 $router->map( 'GET', '/', function() {
-	echo "coucou";
 	\App\Homepage::homepage();
 });
 
@@ -19,7 +18,6 @@ $router->map( 'GET', '/user/[i:id]/', function( $id ) {
 
 // map user details page
 $router->map( 'GET', '/annonces/[i:id]/', function( $id ) {
-	echo "coucou";
 	\App\Detail::detail($id);
 });
 
