@@ -79,4 +79,20 @@ a {
   fill: white;
 }
 
+/* Footer  ----------*/
+footer {
+  text-align: center;
+  width: 100%;
+  background-color: var(--ladybug);
+  position: fixed;
+  bottom: 0;
+}
+footer p {
+  padding-top: 10px;
+}
+footer p span {
+  color: black;
+  font-style: italic;
+}
+
 /*# sourceMappingURL=style.css.map */
