@@ -9,19 +9,68 @@ body{
     margin: 0;
     padding: 0;
     position: relative;
+    --ladybug : #D03612;
 }
 
 .box{
-  background-color: #D03612;
+  background-color: var(--ladybug);
   position: fixed;
   border-radius: 50%;
   z-index: -1;
 }
+a{
+    text-decoration: none;
+}
 
 /* Header  --------------------------------- */
+
+.companyname{
+    background-color: var(--ladybug);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 30px;
+}
 
 .logo{
     height: 55px;
     width: auto;
 }
 
+.align{ 
+    padding-top: 10px;
+    h1{
+        color: white;
+        text-transform: uppercase;
+    }
+}
+
+
+
+.pagetitle{
+    background-color: var(--ladybug);
+    border-radius: 0 5px 5px 0;
+    margin-bottom: 35px;
+    h2{
+        font-size: 2rem;
+        padding-left: 10px;
+    }
+}
+
+.category{
+    background-color: white;
+    color: black;
+    padding-top: 1px;
+    height: 30px;
+    margin-bottom: 20px;
+}
+
+.center-div{
+    margin: 20px auto 0;
+    width: 90%;
+}
+
+.btn-search{
+    width: 60px;
+    background-color: white;
+    border-color: white;
+}
