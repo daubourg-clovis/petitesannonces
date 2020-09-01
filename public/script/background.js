@@ -11,7 +11,7 @@
       document.body.appendChild(this.obj);
     }
     var dot = [];
-    for(var i = 0 ; i < 15 ; i++ ){
+    for(var i = 0 ; i < 10 ; i++ ){
       dot.push(new freshDot());
     }
 
