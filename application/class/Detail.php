@@ -29,7 +29,7 @@ class Detail{
         ]);
      
       //  $loader = new \Twig\Loader\FilesystemLoader('../application/templates'); 
-      $template = $twig->load('index.html.twig');
+      $template = $twig->load('detail.html.twig');
         echo $template->render(array(
             
         ));
