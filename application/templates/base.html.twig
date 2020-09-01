@@ -8,41 +8,41 @@
     <title>{% block title %}{% endblock title %}</title>
 </head>
 <body>
-
-
-    <header>
-        {% block nav %}
-        <div class="container companyname">
-            <div class="row">
-                <div class="col-3">
-                    <a href="index.php"><img src="{{basepath}}/style/medias/logo-coccinelle.png" class="logo" alt="logo coccinelle et cadie de course" width="403" height="317"></a>
-                </div>
-                <div class="col-9 align">
-                    <a href="index.php"><h1>Company Name</h1></a>
-                </div>
-            </div>
-        </div>
-        <div class="nav container">
-            <div class="row">
-                <div class="col pagetitle">
-                    <h2>{% block h2 %}{% endblock h2 %}</h2>
-                </div>
-                <div class="col">
-                    {% block home %}{% endblock home %}
+    <div class="main-container">
+        <header>
+            {% block nav %}
+            <div class="container companyname">
+                <div class="row">
+                    <div class="col-3">
+                        <a href="index.php"><img src="{{basepath}}/style/medias/logo-coccinelle.png" class="logo" alt="logo coccinelle et cadie de course" width="403" height="317"></a>
+                    </div>
+                    <div class="col-9 align">
+                        <a href="index.php"><h1>Company Name</h1></a>
+                    </div>
                 </div>
             </div>
-        </div>            
-        {% endblock nav %}
-            {% block header %}                
-            {% endblock header %}
-     </header>
-    <main>
-        {% block content %}
-        {% endblock content %}
-    </main>
-    <footer>
-        <p>Réalisé par <span>Vanessa KNORR</span> et <span>Clovis DAUBOURG</span><br>@Access Code School | Promo 39 (2020)</p>
-    </footer>
+            <div class="nav container">
+                <div class="row">
+                    <div class="col pagetitle">
+                        <h2>{% block h2 %}{% endblock h2 %}</h2>
+                    </div>
+                    <div class="col">
+                        {% block home %}{% endblock home %}
+                    </div>
+                </div>
+            </div>            
+            {% endblock nav %}
+                {% block header %}                
+                {% endblock header %}
+         </header>
+        <main>
+            {% block content %}
+            {% endblock content %}
+        </main>
+        <footer>
+            <p>Réalisé par <span>Vanessa KNORR</span> et <span>Clovis DAUBOURG</span><br>@Access Code School | Promo 39 (2020)</p>
+        </footer>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

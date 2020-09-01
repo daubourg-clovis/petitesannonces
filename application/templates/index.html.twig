@@ -29,16 +29,33 @@
 {% endblock header %}
 {% block content %}    
     {% for annonce in annonces %}
+    <div class="container center-annonce col-10">
         <a href="detail.php?{{annonce.id}}">
             <div class="seeDetails">
-                <p><img src="{{annonce.img}}" alt=""></p>
-                <div>
+                <div class="img-size">
+                    <p><img src="{{basepath}}/path/to/{{annonce.img}}" alt="" class="img-annonce"></p>
+                </div>
+                <div class="details-size">
                     <h3>{{annonce.name}}</h3>
                     <p>{{annonce.categorie}}</p>
                 </div>
             </div>
         </a>
+    </div>
     {% endfor %}
+    <div class="container center-annonce col-10">
+        <a href="detail.php">
+            <div class="seeDetails">
+                <div class="img-size">
+                    <p><img src="{{basepath}}/style/medias/placeholder.jpg" alt="" class="img-annonce"></p>
+                </div>
+                <div class="details-size">
+                    <h3>Nom Annonce</h3>
+                    <p>Catégorie</p>
+                </div>
+            </div>
+        </a>
+    </div>
 {% endblock content %}
 {% block script %}
         

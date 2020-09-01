@@ -9,7 +9,16 @@ body{
     margin: 0;
     padding: 0;
     position: relative;
+    height: 100%;
     --ladybug : #D03612;
+}
+
+.main-container{
+    min-height: 100vh; 
+    overflow: hidden;
+    display: block;
+    position: relative;
+    padding-bottom: 150px; 
 }
 
 .box{
@@ -82,6 +91,34 @@ a{
     }
 }
 
+/* Index Main  --------------------------------- */
+
+
+.img-size{
+    width: 265px;
+    height: 265px;
+    .img-annonce{
+        width: 265px;
+        height: 265px;
+        border: 2px solid var(--ladybug);
+    }
+}
+
+.center-annonce{
+    margin-top: 65px;
+    a{
+        color: white;
+    }
+}
+
+.details-size{
+    width: 265px;
+    background-color: #292929;
+    margin-top: 10px;
+    border: 2px solid var(--ladybug);
+    padding-left: 5px;
+}
+
 
 /* Footer  ----------*/
 
@@ -89,8 +126,11 @@ footer{
     text-align: center;
     width: 100%;
     background-color: var(--ladybug);
-    position: fixed;
+    position: absolute;
     bottom: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     p{
         padding-top: 10px;
         span{
