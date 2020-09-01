@@ -27,9 +27,30 @@ class Annonce {
         return  $annonces;
 
     }   
-     public static function ajout($ann_description,$ann_image_url, $ann_image_nom, $ann_est_valider, $ann_date_ecriture, $ann_date_validation, $iD_categorie, $ID_utilisateur){
+
+    // ajout
+    public static function formulaireajout (){
+        $loader = new \Twig\Loader\FilesystemLoader('../application/templates');
+        $twig = new \Twig\Environment($loader, [
+        'cache' => false,
+          ]);
+       
+        //  $loader = new \Twig\Loader\FilesystemLoader('../application/templates'); 
+        $template = $twig->load('addform.html.twig');
+          echo $template->render(array(
+              
+        ));
+
+
+    }
+     public static function ajout($ann_description,$ann_image_url, $ann_image_nom, $ann_est_valider, $ann_date_ecriture, $iD_categorie, $ID_utilisateur){
         $db=new Db();
-        $sql='INSERT INTO `annonce` (`ann_unique_id`, `ann_description`, `ann_image_url`, `ann_image_nom`, `ann_est_valider`, `ann_date_ecriture`, `ann_date_validation`, `iD_categorie`, `ID_utilisateur`) VALUES (null, :ann_description, :ann_image_url, :ann_image_nom, :ann_est_valider, :ann_date_ecriture, :ann_date_validation, :iD_categorie, :ID_utilisateur)';
+        $ann_date_ecriture = date("Y-m-d");
+        $sql='BEGIN;
+        INSERT INTO utilisateur (usr_courriel, usr_nom, usr_prenom, usr_telephone) VALUES (:courriel, :nom, :prenom, :telephone);
+        SET @ID_utilisateur = LAST_INSERT_ID();
+        INSERT INTO `annonce` (`ann_description`, `ann_image_url`, `ann_image_nom`, `ann_est_valider`, `ann_date_ecriture`,  `iD_categorie`, `ID_utilisateur`) VALUES ( :ann_description, :ann_image_url, :ann_image_nom, :ann_est_valider, :ann_date_ecriture, :iD_categorie, @ID_utilisateur);
+        COMMIT;';
         $stmt = $db->connect->prepare($sql);
        
             
@@ -38,7 +59,7 @@ class Annonce {
         $stmt->bindParam(':ann_image_nom', $ann_image_nom );
         $stmt->bindParam(':ann_est_valider', $ann_est_valider );
         $stmt->bindParam(':ann_date_ecriture', $ann_date_ecriture );
-        $stmt->bindParam(':ann_date_validation', $ann_date_validation );
+       // $stmt->bindParam(':ann_date_validation', $ann_date_validation );
         $stmt->bindParam(':iD_categorie', $iD_categorie, \PDO::PARAM_INT );
         $stmt->bindParam(':ID_utilisateur', $ID_utilisateur, \PDO::PARAM_INT );
         
@@ -51,12 +72,16 @@ class Annonce {
          ]);
       
        //  $loader = new \Twig\Loader\FilesystemLoader('../application/templates'); 
-       $template = $twig->load('index.html.twig');
+       $template = $twig->load('base.html.twig');
          echo $template->render(array(
              
        ));
     }
     function modif(){
+   $ann_date_validation = date("Y-m-d");
+   $sql=
+
+
 
     }
     function supprimer(){
