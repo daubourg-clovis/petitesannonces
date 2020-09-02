@@ -14,16 +14,46 @@
         </div>
         <div class="details-size">
             <div>
-                <p>Catégorie : <span> {{annonce.cat_libelle}}</span>.</p>
-                <p>Description : <br> <span>{{annonce.description}} Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt voluptatem autem necessitatibus est, suscipit possimus, harum inventore illum totam dolores nesciunt, modi rerum vel magnam aperiam laborum et ex quam.</span></p>
+                <div class="row">
+                    <div class="col">
+                        <h3>Catégorie : </h3>
+                    </div>
+                    <div class="col">
+                        <p class="cat-filter"><a href="">{{annonce.cat_libelle}}Immobilier</a> </p>
+                    </div>
+                </div>
+                <h3>Description : <br> </h3>
+                <p>{{annonce.description}} Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt voluptatem autem necessitatibus est, suscipit possimus, harum inventore illum totam dolores nesciunt, modi rerum vel magnam aperiam laborum et ex quam.</p>
             </div>
         </div>
         <div class="details-size">
-            <p>Contacter le vendeur</p>
-            <div>
-                <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 7.001c0 3.865-3.134 7-7 7s-7-3.135-7-7c0-3.867 3.134-7.001 7-7.001s7 3.134 7 7.001zm-1.598 7.18c-1.506 1.137-3.374 1.82-5.402 1.82-2.03 0-3.899-.685-5.407-1.822-4.072 1.793-6.593 7.376-6.593 9.821h24c0-2.423-2.6-8.006-6.598-9.819z"/></svg>{{annonce.usr_nom}} {{annonce.usr_prenom}}</p>
-                <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z"/></svg>{{annonce.usr_courriel}}</p>
-                <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18.48 22.926l-1.193.658c-6.979 3.621-19.082-17.494-12.279-21.484l1.145-.637 3.714 6.467-1.139.632c-2.067 1.245 2.76 9.707 4.879 8.545l1.162-.642 3.711 6.461zm-9.808-22.926l-1.68.975 3.714 6.466 1.681-.975-3.715-6.466zm8.613 14.997l-1.68.975 3.714 6.467 1.681-.975-3.715-6.467z"/></svg>{{annonce.usr_telephone}}</p>
+            <h3>Contacter le vendeur :</h3>
+            <div class="seller-infos">
+                <div class="row">
+                    <div class="col-2">
+                        <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 7.001c0 3.865-3.134 7-7 7s-7-3.135-7-7c0-3.867 3.134-7.001 7-7.001s7 3.134 7 7.001zm-1.598 7.18c-1.506 1.137-3.374 1.82-5.402 1.82-2.03 0-3.899-.685-5.407-1.822-4.072 1.793-6.593 7.376-6.593 9.821h24c0-2.423-2.6-8.006-6.598-9.819z"/></svg>{{annonce.usr_nom}} {{annonce.usr_prenom}}</p>
+
+                    </div>
+                    <div class="col">
+                        <p>NOM Prénom</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z"/></svg></p>
+                    </div>
+                    <div class="col">
+                        <p>{{annonce.usr_courriel}}email@test.com</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18.48 22.926l-1.193.658c-6.979 3.621-19.082-17.494-12.279-21.484l1.145-.637 3.714 6.467-1.139.632c-2.067 1.245 2.76 9.707 4.879 8.545l1.162-.642 3.711 6.461zm-9.808-22.926l-1.68.975 3.714 6.466 1.681-.975-3.715-6.466zm8.613 14.997l-1.68.975 3.714 6.467 1.681-.975-3.715-6.467z"/></svg></p>
+                    </div>
+                    <div class="col">
+                        <p>{{annonce.usr_telephone}} 03.85.85.85.85</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

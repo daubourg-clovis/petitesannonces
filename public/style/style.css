@@ -122,6 +122,27 @@ a {
   fill: #df4759;
 }
 
+.seller-infos svg {
+  fill: white;
+}
+
+.seeDetails h3 {
+  font-size: 1.2rem;
+  color: var(--ladybug);
+  font-weight: bold;
+}
+
+.cat-filter {
+  margin-top: 5px;
+  width: 90px;
+  text-align: center;
+  background-color: white;
+  border: 1px solid grey;
+}
+.cat-filter a {
+  color: black;
+}
+
 /* Footer  ------------------------*/
 footer {
   text-align: center;
