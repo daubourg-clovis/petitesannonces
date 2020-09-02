@@ -11,7 +11,7 @@
                 <p><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M24 18v1h-24v-1h24zm0-6v1h-24v-1h24zm0-6v1h-24v-1h24z" fill="#1040e2"/><path d="M24 19h-24v-1h24v1zm0-6h-24v-1h24v1zm0-6h-24v-1h24v1z"/></svg></p>
             </div>
         </div>        
-        <form action="search.php" class="center-div">
+        <form action="/annonces/recherche/" class="center-div">
             <div class="row">
                 <div class="col">
                     <input type="search" name="search" id="search" placeholder="Rechercher">
@@ -23,7 +23,7 @@
             </div>
         </form>
         <div class="center-div position-header ">
-            <a href="add.php" class="btn btn-danger">Déposer une annonce <span class="btn-plus"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"/></svg></span></a>
+            <a href="/annonces/ajout/" class="btn btn-danger">Déposer une annonce <span class="btn-plus"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"/></svg></span></a>
         </div>
     </div>
 {% endblock header %}
@@ -38,6 +38,7 @@
                 <div class="details-size">
                     <h3>{{annonce.name}}</h3>
                     <p>{{annonce.categorie}}</p>
+                    <p>{{annonce.ann_description}}</p>
                 </div>
             </div>
         </a>
