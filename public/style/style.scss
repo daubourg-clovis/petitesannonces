@@ -4,13 +4,15 @@ html {
 
 
 body{
-    background-color: #181725;
+    background-color:var(--main-color);
+    --main-color : #181725;
     color: #ffff;
     margin: 0;
     padding: 0;
     position: relative;
     height: 100%;
     --ladybug : #D03612;
+    --area-color : #292929;
 }
 
 .main-container{
@@ -113,7 +115,7 @@ a{
 
 .details-size{
     width: 265px;
-    background-color: #292929;
+    background-color: var(--area-color);
     margin-top: 10px;
     border: 2px solid var(--ladybug);
     padding-left: 5px;
@@ -153,6 +155,28 @@ a{
         color: black;
     }
 }
+
+/* Form ----------------------*/
+.form-control{
+    background-color: var(--area-color);
+    border-color: var(--ladybug);
+    color: white;
+    &:focus{
+        background-color: var(--area-color);
+        border-color: var(--ladybug);
+        color: white;
+    }
+}
+
+.add-form{
+    label{
+        font-size: 1.5rem;
+        span{
+            color: var(--ladybug);
+        }
+    }
+}
+
 
 /* Footer  ------------------------*/
 
