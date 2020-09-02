@@ -4,14 +4,14 @@ html {
 
 body {
   background-color: var(--main-color);
-  --main-color: #181725;
+  --main-color: #0f131a;
   color: #ffff;
   margin: 0;
   padding: 0;
   position: relative;
   height: 100%;
   --ladybug: #D03612;
-  --area-color: #292929;
+  --area-color: #06070a;
 }
 
 .main-container {
@@ -137,22 +137,16 @@ a {
 .cat-filter {
   margin-top: 5px;
   width: 90px;
-  text-align: center;
-  background-color: white;
-  border: 1px solid grey;
-}
-.cat-filter a {
-  color: black;
 }
 
 /* Form ----------------------*/
 .form-control {
-  background-color: var(--area-color);
+  background-color: #06070a;
   border-color: var(--ladybug);
   color: white;
 }
 .form-control:focus {
-  background-color: var(--area-color);
+  background-color: #090c10;
   border-color: var(--ladybug);
   color: white;
 }
@@ -162,6 +156,10 @@ a {
 }
 .add-form label span {
   color: var(--ladybug);
+}
+
+.upload {
+  margin: 5px auto 35px;
 }
 
 /* Footer  ------------------------*/
