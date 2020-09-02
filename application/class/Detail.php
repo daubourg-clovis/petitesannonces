@@ -4,7 +4,6 @@ require_once('Db.php');
 class Detail{
     
     public static function detail($id){
-        echo "coucou";
         $db=new Db();
         
         $sql='SELECT * FROM annonce WHERE ann_unique_id=:id';
@@ -30,7 +29,7 @@ class Detail{
         ]);
      
       //  $loader = new \Twig\Loader\FilesystemLoader('../application/templates'); 
-      $template = $twig->load('index.html.twig');
+      $template = $twig->load('detail.html.twig');
         echo $template->render(array(
             
         ));

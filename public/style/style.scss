@@ -1,0 +1,141 @@
+html {
+    scroll-behavior: smooth;
+}
+
+
+body{
+    background-color: #181725;
+    color: #ffff;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    height: 100%;
+    --ladybug : #D03612;
+}
+
+.main-container{
+    min-height: 100vh; 
+    overflow: hidden;
+    display: block;
+    position: relative;
+    padding-bottom: 150px; 
+}
+
+.box{
+  background-color: var(--ladybug);
+  position: fixed;
+  border-radius: 50%;
+  z-index: -1;
+}
+a{
+    text-decoration: none;
+}
+
+/* Header  --------------------------------- */
+
+.companyname{
+    background-color: var(--ladybug);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 30px;
+}
+
+.logo{
+    height: 55px;
+    width: auto;
+}
+
+.align{ 
+    padding-top: 10px;
+    h1{
+        color: white;
+        text-transform: uppercase;
+    }
+}
+
+
+
+.pagetitle{
+    background-color: var(--ladybug);
+    border-radius: 0 5px 5px 0;
+    margin-bottom: 35px;
+    h2{
+        font-size: 2rem;
+        padding-left: 10px;
+    }
+}
+
+.style-header{
+    background-color: white;
+    color: black;
+    padding-top: 1px;
+    height: 30px;
+    margin-bottom: 20px;
+}
+
+.center-div{
+    margin: 20px auto 0;
+    width: 90%;
+}
+
+.btn-search{
+    width: 60px;
+    background-color: white;
+    border-color: white;
+}
+
+.btn-plus{
+    margin-left: 80px;
+    svg{
+        fill: white;
+    }
+}
+
+/* Index Main  --------------------------------- */
+
+
+.img-size{
+    width: 265px;
+    height: 265px;
+    .img-annonce{
+        width: 265px;
+        height: 265px;
+        border: 2px solid var(--ladybug);
+    }
+}
+
+.center-annonce{
+    margin-top: 65px;
+    a{
+        color: white;
+    }
+}
+
+.details-size{
+    width: 265px;
+    background-color: #292929;
+    margin-top: 10px;
+    border: 2px solid var(--ladybug);
+    padding-left: 5px;
+}
+
+
+/* Footer  ----------*/
+
+footer{
+    text-align: center;
+    width: 100%;
+    background-color: var(--ladybug);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    p{
+        padding-top: 10px;
+        span{
+            color: black;
+            font-style: italic;
+        }
+    }
+}
