@@ -36,7 +36,10 @@ class Homepage{
 
      
     }
-   public static function recherche($clef){
+   public static function recherche(){
+     $clef=$_POST["search"];
+
+     
       $db=new Db();
 
 
