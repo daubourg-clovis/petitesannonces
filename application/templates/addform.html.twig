@@ -19,6 +19,9 @@
     
             <label for="phone">Téléphone<span>*</span> : </label>
             <input type="text" name="phone" id="phone" value="{% block phone %}{% endblock phone %} " class="form-control">
+
+            <label for="title">Titre<span>*</span> : </label>
+            <input type="text" name="title" id="title" value="{% block titleform %}{% endblock titleform %} " class="form-control">
     
             <label for="category">Catégorie<span>*</span> : </label>
             <select name="category" id="category" class="form-control">
@@ -32,7 +35,9 @@
                 <option value="7">Affaires Pro</option>
                 <option value="8">Autres</option>
             </select>
-    
+            <label for="phone">Prix<span>*</span> : </label>
+            <input type="text" name="price" id="price" value="{% block price %}{% endblock price %} " class="form-control">
+
             <label for="details">Texte de l'annonce<span>*</span> : </label>
             <textarea name="details" id="details" cols="30" rows="10" value="{% block details %}{% endblock details %} " class="form-control"></textarea>
 
