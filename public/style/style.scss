@@ -120,6 +120,10 @@ a{
     margin-top: 10px;
     border: 2px solid var(--ladybug);
     padding-left: 5px;
+
+}
+.price::after{
+    content: ' €';
 }
 
 /* details -----------------------*/
@@ -142,6 +146,7 @@ a{
         font-size: 1.2rem;
         color: var(--ladybug);
         font-weight: bold;
+        text-transform: capitalize;
     }
 }
 
