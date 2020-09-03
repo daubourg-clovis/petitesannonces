@@ -4,13 +4,15 @@ html {
 
 
 body{
-    background-color: #181725;
+    background-color:var(--main-color);
+    --main-color : #0f131a;
     color: #ffff;
     margin: 0;
     padding: 0;
     position: relative;
     height: 100%;
     --ladybug : #D03612;
+    --area-color : #06070a;
 }
 
 .main-container{
@@ -27,6 +29,7 @@ body{
   border-radius: 50%;
   z-index: -1;
 }
+
 a{
     text-decoration: none;
 }
@@ -113,14 +116,68 @@ a{
 
 .details-size{
     width: 265px;
-    background-color: #292929;
+    background-color: var(--area-color);
     margin-top: 10px;
     border: 2px solid var(--ladybug);
     padding-left: 5px;
 }
 
+/* details -----------------------*/
 
-/* Footer  ----------*/
+.redirect{ 
+    margin-left: 150px; ;
+    svg{
+    fill: #df4759;
+    }
+}
+
+.seller-infos{
+    svg{
+        fill: white;
+    }
+}
+
+.seeDetails{
+    h3{
+        font-size: 1.2rem;
+        color: var(--ladybug);
+        font-weight: bold;
+    }
+}
+
+.cat-filter{
+    margin-top: 5px;
+    width: 90px;
+
+
+
+}
+
+/* Form ----------------------*/
+.form-control{
+    background-color: darken(#0f131a, 5%);
+    border-color: var(--ladybug);
+    color: white;
+    &:focus{
+        background-color: darken(#0f131a , 3%);
+        border-color: var(--ladybug);
+        color: white;
+    }
+}
+
+.add-form{
+    label{
+        font-size: 1.5rem;
+        span{
+            color: var(--ladybug);
+        }
+    }
+}
+.upload{
+    margin: 5px auto 35px;
+}
+
+/* Footer  ------------------------*/
 
 footer{
     text-align: center;

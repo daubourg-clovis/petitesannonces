@@ -20,8 +20,8 @@ $router->map( 'GET', '/user/[i:id]/', function( $id ) {
 
 
 // map user details page
-$router->map( 'GET', '/annonces/[i:id]/', function( $id ) {
-	\App\Detail::detail($id);
+$router->map( 'GET', '/annonces/[i:id]', function( $id ) {
+	 \App\Detail::detail($id);
 });
 // map ajout
 $router->map( 'POST', '/annonces/ajout/', function() {

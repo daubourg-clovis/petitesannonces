@@ -1,6 +1,13 @@
 <?php
 namespace App;
 require_once('Db.php');
+
+//Definition de path de base
+define("BASE_PATH", "");
+
+//Definition de l'URI
+define("SERVER_URI", $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . BASE_PATH) ;
+
 class Detail{
     
     public static function detail($id){
@@ -21,7 +28,6 @@ class Detail{
             $annonce= $stmt->fetchAll();
         
         
-      var_dump($annonce);
        
         $loader = new \Twig\Loader\FilesystemLoader('../application/templates');
         $twig = new \Twig\Environment($loader, [
@@ -30,9 +36,10 @@ class Detail{
      
       //  $loader = new \Twig\Loader\FilesystemLoader('../application/templates'); 
       $template = $twig->load('detail.html.twig');
-        echo $template->render(array(
-            
-        ));
+        echo $template->render([
+            'annonce' => $annonce,
+            'basepath' => SERVER_URI,
+          ]);
 
       
 
