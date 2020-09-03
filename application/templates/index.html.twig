@@ -35,8 +35,10 @@
                     <a href="/annonces/{{annonce_unique_id}}"><p><img src="{{basepath}}/path/to/{{annonce.ann_image_url}}" alt="" class="img-annonce"></p></a>
                 </div>
                 <div class="details-size">
-                    <a href="/annonces/{{annonce_unique_id}}"><h3>{{annonce.ann_titre}}</h3></a>                    
+                    <a href="/annonces/{{annonce_unique_id}}"><h3>{{annonce.ann_titre}}</h3></a>
+                    {% if annonce.ann_prix %}                        
                     <p class="price">{{annonce.ann_prix}}</p>
+                    {% endif %}                   
                     <a href="/annonces/category"><p class="btn btn-danger">{{annonce.cat_libelle}}</p></a>
                 </div>
             </div>
@@ -50,6 +52,7 @@
                 </div>
                 <div class="details-size">
                     <h3>Nom Annonce</h3>
+                    <p>Prix</p>
                     <p>Catégorie</p>
                 </div>
             </div>
