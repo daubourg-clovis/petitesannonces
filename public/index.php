@@ -30,11 +30,12 @@ $router->map( 'POST', '/annonces/ajout/', function() {
 });
 
 
-$router->map( 'GET', '/annonces/recherche/[*:search]/', function($search) {
+$router->map( 'POST', '/annonces/recherche/', function() {
 	
 	echo "coucou";
-	\App\Homepage::recherche($search);
+	\App\Homepage::recherche();
 });
+
 // map formulaire d'ajout
 $router->map('GET', '/annonces/ajout/', function(){
 	\App\Annonce::formulaireajout();
