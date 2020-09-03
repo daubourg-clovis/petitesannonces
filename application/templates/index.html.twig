@@ -30,18 +30,16 @@
 {% block content %}    
     {% for annonce in annonces %}
     <div class="container center-annonce col-10">
-        <a href="detail.php?{{annonce.id}}">
             <div class="seeDetails">
                 <div class="img-size">
-                    <p><img src="{{basepath}}/path/to/{{annonce.img}}" alt="" class="img-annonce"></p>
+                    <a href="/annonces/{{annonce_unique_id}}"><p><img src="{{basepath}}/path/to/{{annonce.ann_image_url}}" alt="" class="img-annonce"></p></a>
                 </div>
                 <div class="details-size">
-                    <h3>{{annonce.name}}</h3>
-                    <p>{{annonce.categorie}}</p>
-                    <p>{{annonce.ann_description}}</p>
+                    <a href="/annonces/{{annonce_unique_id}}"><h3>{{annonce.ann_titre}}</h3></a>                    
+                    <p class="price">{{annonce.ann_prix}}</p>
+                    <a href="/annonces/category"><p class="btn btn-danger">{{annonce.cat_libelle}}</p></a>
                 </div>
             </div>
-        </a>
     </div>
     {% endfor %}
     <div class="container center-annonce col-10">

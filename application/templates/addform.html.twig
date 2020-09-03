@@ -35,8 +35,8 @@
                 <option value="7">Affaires Pro</option>
                 <option value="8">Autres</option>
             </select>
-            <label for="phone">Prix<span>*</span> : </label>
-            <input type="text" name="price" id="price" value="{% block price %}{% endblock price %} " class="form-control">
+            <label for="price">Prix (en €) : </label>
+            <input type="number" name="price" id="price" value="{% block price %}{% endblock price %} " class="form-control">
 
             <label for="details">Texte de l'annonce<span>*</span> : </label>
             <textarea name="details" id="details" cols="30" rows="10" value="{% block details %}{% endblock details %} " class="form-control"></textarea>
