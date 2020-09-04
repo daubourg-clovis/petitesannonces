@@ -5,7 +5,7 @@
 
 
 {% block content %}
-    <form action="/annonces/ajout/" method="post" class="add-form">
+    <form action="{% block name %}/annonces/ajout/{% endblock name %} " method="post" class="add-form">
         <div class="container">
 
             <label for="surname">Nom<span>*</span> : </label>
@@ -43,10 +43,12 @@
 
             <label for="upload" >Ajouter une image : </label>
             <input type="file" name="upload" class="upload">
-               
+            {% block img_name %}{% endblock img_name %}
     
-            {% block submit %}  
-                <input type="submit" value="Valider" class="btn-danger btn btn-block btn-submit"> {% block delete %}{% endblock delete %}        
+            {% block submit %} 
+                <div class="submit">
+                    <input type="submit" value="Valider" class="btn-danger btn btn-block btn-submit"> {% block delete %}{% endblock delete %}        
+                </div>
             {% endblock submit %}
         </div>
     </form>
