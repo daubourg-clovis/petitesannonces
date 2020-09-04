@@ -140,6 +140,14 @@ a {
   fill: white;
 }
 
+.detail-titre {
+  text-transform: capitalize;
+  font-size: 1.7rem !important;
+  text-align: center;
+  margin-bottom: 50px;
+  color: white !important;
+}
+
 .seeDetails h3 {
   font-size: 1.2rem;
   color: var(--ladybug);
@@ -157,6 +165,13 @@ a {
   margin-top: 10px;
   border: 2px solid var(--ladybug);
   padding-left: 5px;
+}
+
+.btn-dwl {
+  width: 265px;
+}
+.btn-dwl svg {
+  fill: white;
 }
 
 /* Form ----------------------*/
@@ -231,6 +246,10 @@ footer p span {
     width: 350px;
     margin-top: 0px;
     margin-bottom: 10px;
+  }
+
+  .btn-dwl {
+    width: 350px;
   }
 }
 
