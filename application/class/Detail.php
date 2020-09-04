@@ -27,8 +27,6 @@ class Detail{
             $stmt->execute();
             $annonce = $stmt->fetchAll();
         
-           var_dump($annonce);
-       
             
                   $loader = new \Twig\Loader\FilesystemLoader('../application/templates');
                   $twig = new \Twig\Environment($loader, [
@@ -37,9 +35,10 @@ class Detail{
 
             
                   $template = $twig->load('detail.html.twig');
+
                     echo $template->render([
-                      'annonce' => $annonce,
-                      'basepath' => SERVER_URI,
+                      'annonce' => $annonce[0],
+                  
                       
                     ]);
       
