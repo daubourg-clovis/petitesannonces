@@ -101,12 +101,27 @@ class Annonce {
        )); */
     }
 
-    function modif(){
+    public static function modif(){
   
 
 
 
     }
+
+    public static function formulairemodif (){
+      $loader = new \Twig\Loader\FilesystemLoader('../application/templates');
+      $twig = new \Twig\Environment($loader, [
+      'cache' => false,
+        ]);
+       
+
+
+      //  $loader = new \Twig\Loader\FilesystemLoader('../application/templates'); 
+      $template = $twig->load('editform.html.twig');
+        echo $template->render();
+
+
+  }
     function supprimer(){
 
     }
