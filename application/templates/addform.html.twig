@@ -5,26 +5,41 @@
 
 
 {% block content %}
-    <form action="{% block name %}/annonces/ajout/{% endblock name %} " method="post" class="add-form">
+    <form action="{% block name %}/annonces/ajout/{% endblock name %} " method="post" class="add-form needs-validation" novalidate>
         <div class="container">
 
             <label for="surname">Nom<span>*</span> : </label>
-            <input type="text" name="surname" id="surname" value="{% block surname %}{% endblock surname %} " class="form-control">
-    
+            <input type="text" name="surname" id="surname" value="{% block surname %}{% endblock surname %} " class="form-control" required>
+            <div class="invalid-feedback">
+                <p>Veuillez rentrer votre nom</p> 
+            </div>
+
             <label for="firstname">Prénom<span>*</span> :</label>
-            <input type="text" name="firstname" id="firstname" value="{% block firstname %}{% endblock firstname %} " class="form-control">
-    
+            <input type="text" name="firstname" id="firstname" value="{% block firstname %}{% endblock firstname %} " class="form-control" required>
+            <div class="invalid-feedback">
+                <p>Veuillez rentrer votre prénom</p> 
+            </div>
+
             <label for="email">Email<span>*</span> : </label>
-            <input type="email" name="email" id="email" value="{% block email %}{% endblock email %} " class="form-control">
-    
+            <input type="email" name="email" id="email" value="{% block email %}{% endblock email %} " class="form-control" required>
+            <div class="invalid-feedback">
+                <p>Veuillez rentrer une adresse email valide</p> 
+            </div>
+
             <label for="phone">Téléphone<span>*</span> : </label>
-            <input type="text" name="phone" id="phone" value="{% block phone %}{% endblock phone %} " class="form-control">
+            <input type="text" name="phone" id="phone" value="{% block phone %}{% endblock phone %} " class="form-control" required>
+            <div class="invalid-feedback">
+                <p>Veuillez rentrer votre numéro de téléphone</p> 
+            </div>
 
             <label for="title">Titre<span>*</span> : </label>
-            <input type="text" name="title" id="title" value="{% block titleform %}{% endblock titleform %} " class="form-control">
-    
+            <input type="text" name="title" id="title" value="{% block titleform %}{% endblock titleform %} " class="form-control" required>
+            <div class="invalid-feedback">
+                <p>Veuillez rentrer un titre à votre annonce</p> 
+            </div>
+
             <label for="category">Catégorie<span>*</span> : </label>
-            <select name="category" id="category" class="form-control">
+            <select name="category" id="category" class="form-control" required>
                 <option value="{% block categoryvalue %}{% endblock categoryvalue %}">{% block categoryname %}Choisissez une catégorie{% endblock categoryname %}</option>
                 <option value="1">Immobilier</option>
                 <option value="2">Auto-Moto</option>
@@ -35,11 +50,19 @@
                 <option value="7">Affaires Pro</option>
                 <option value="8">Autres</option>
             </select>
+            <div class="invalid-feedback">
+                <p>Veuillez choisir une catégorie</p> 
+            </div>
+
             <label for="phone">Prix<span>*</span> : </label>
             <input type="text" name="price" id="price" value="{% block price %}{% endblock price %} " class="form-control">
 
+
             <label for="details">Texte de l'annonce<span>*</span> : </label>
-            <textarea name="details" id="details" cols="30" rows="10" value="{% block details %}{% endblock details %} " class="form-control"></textarea>
+            <textarea name="details" id="details" cols="30" rows="10" value="{% block details %}{% endblock details %} " class="form-control" required></textarea>
+            <div class="invalid-feedback">
+                <p>Veuillez écrire un descriptif de l'annonce</p> 
+            </div>
 
             <label for="upload" >Ajouter une image : </label>
             <input type="file" name="upload" class="upload">
@@ -54,6 +77,6 @@
     </form>
 {% endblock content %}
 {% block script %}
-        
+        <script src="{{basepath}}/script/validation.js"></script>
 {% endblock script %}
 
