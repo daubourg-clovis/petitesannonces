@@ -8,6 +8,7 @@
     "require": {
         "twig/twig": "^3.0",
         "altorouter/altorouter": "^2.0",
-        "symfony/swiftmailer-bundle": "^3.4"
+        "swiftmailer/swiftmailer": "6.0"
+        
     }
 }

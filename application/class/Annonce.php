@@ -118,8 +118,9 @@ class Annonce {
        $twig = new \Twig\Environment($loader, [
        'cache' => false,
          ]); */
-       header('Location: /');
-      \app\Mail::mailto($usr_courriel);
+      
+      \App\Mail::mailto($usr_courriel);
+      header('Location: /');
        //  $loader = new \Twig\Loader\FilesystemLoader('../application/templates'); 
       /*  $template = $twig->load('base.html.twig');
          echo $template->render(array(
