@@ -18,7 +18,7 @@ $mailer = new \Swift_Mailer($transport);
 $message = (new \Swift_Message('annonces'))
 ->setFrom('vanessa.knorr@outlook.fr')
 ->setTo(["vanessa.knorr@outlook.fr" => 'vanessa'])
-->setBody('Confirmez votre publication')
+->setBody('Confirmez votre publication') 
 ;
 
 // Send the message
@@ -26,3 +26,4 @@ $result = $mailer->send($message);
 
     }
 }
+   
