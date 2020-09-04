@@ -47,9 +47,35 @@ class Annonce {
     }
     //$ann_description,$ann_image_url, $ann_image_nom, $ann_est_valider, $ann_date_ecriture, $iD_categorie, $ID_utilisateur
      public static function ajout(){
+     //  var_dump($_FILES);
+     //  var_dump($_POST);
+      
+       $filename = $_FILES['upload']['tmp_name'];
+       var_dump($_SERVER['DOCUMENT_ROOT']);
+       $basename = $_SERVER["DOCUMENT_ROOT"];
+       $destination = "/img/";
+       echo '<pre>';
+        if (move_uploaded_file($_FILES['upload']['tmp_name'],  $basename.$destination.$_FILES['upload']['name'])) {
+            echo "Le fichier est valide, et a été téléchargé
+                  avec succès. Voici plus d'informations :\n";
+        } else {
+            echo "Attaque potentielle par téléchargement de fichiers.
+                  Voici plus d'informations :\n";
+        }
+
+        echo 'Voici quelques informations de débogage :';
+        print_r($_FILES);
+
+        echo '</pre>';
+  
+      
+       move_uploaded_file ( $filename , $destination );
+      
+     
+
       $ann_description = trim($_POST['details']);
-      $ann_image_url  = trim($_POST['upload']);
-       $ann_image_nom = trim($_POST['upload']);
+      $ann_image_url = $destination.$_FILES['upload']['name'];
+       $ann_image_nom = $filename ;
        $ann_est_valider = "false";
        
        $iD_categorie = trim($_POST['category']);
@@ -84,7 +110,7 @@ class Annonce {
        $stmt->bindParam(':prenom', $usr_prenom );
        $stmt->bindParam(':telephone', $usr_telephone );
        $stmt->bindParam(':ann_titre', $ann_titre );
-       $stmt->bindValue(':ann_prix', $ann_prix );
+       $stmt->bindValue(':ann_prix', $ann_prix, \PDO::PARAM_INT );
         
         $stmt->execute();
        // $annonce= $stmt->fetchAll();
@@ -92,8 +118,9 @@ class Annonce {
        $twig = new \Twig\Environment($loader, [
        'cache' => false,
          ]); */
-         header('Location: /');
-
+      
+      \App\Mail::mailto($usr_courriel);
+      header('Location: /');
        //  $loader = new \Twig\Loader\FilesystemLoader('../application/templates'); 
       /*  $template = $twig->load('base.html.twig');
          echo $template->render(array(
@@ -102,9 +129,6 @@ class Annonce {
     }
 
     public static function modif(){
-  
-
-
 
     }
 

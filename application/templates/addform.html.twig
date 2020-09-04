@@ -5,7 +5,7 @@
 
 
 {% block content %}
-    <form action="{% block name %}/annonces/ajout/{% endblock name %} " method="post" class="add-form needs-validation" novalidate>
+    <form action="{% block name %}/annonces/ajout/{% endblock name %} " method="post" class="add-form needs-validation" novalidate enctype="multipart/form-data">
         <div class="container col-xl-4">
 
             <label for="surname">Nom<span>*</span> : </label>
