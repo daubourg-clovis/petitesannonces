@@ -51,7 +51,8 @@ class Annonce {
      //  var_dump($_POST);
       
        $filename = $_FILES['upload']['tmp_name'];
-        $basename = "C:/wamp64/www/annonces/public";
+       var_dump($_SERVER['DOCUMENT_ROOT']);
+       $basename = $_SERVER["DOCUMENT_ROOT"];
        $destination = "/img/";
        echo '<pre>';
         if (move_uploaded_file($_FILES['upload']['tmp_name'],  $basename.$destination.$_FILES['upload']['name'])) {
@@ -118,7 +119,7 @@ class Annonce {
        'cache' => false,
          ]); */
        header('Location: /');
-
+      \app\Mail::mailto($usr_courriel);
        //  $loader = new \Twig\Loader\FilesystemLoader('../application/templates'); 
       /*  $template = $twig->load('base.html.twig');
          echo $template->render(array(
@@ -126,13 +127,6 @@ class Annonce {
        )); */
     }
 
-    function modif(){
-  
-
-
-
-    }
-    function supprimer(){
-
-    }
+   
+    
 } 
