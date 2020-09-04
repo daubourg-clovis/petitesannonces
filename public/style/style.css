@@ -12,6 +12,7 @@ body {
   height: 100%;
   --ladybug: #D03612;
   --area-color: #06070a;
+  --danger: #df4759;
 }
 
 .main-container {
@@ -108,7 +109,7 @@ a {
   color: white;
 }
 
-.details-size {
+.ann-size {
   width: 265px;
   background-color: var(--area-color);
   margin-top: 10px;
@@ -121,7 +122,7 @@ a {
   margin-left: 150px;
 }
 .redirect svg {
-  fill: #df4759;
+  fill: var(--danger);
 }
 
 .seller-infos svg {
@@ -137,6 +138,14 @@ a {
 .cat-filter {
   margin-top: 5px;
   width: 90px;
+}
+
+.details-size {
+  width: 265px;
+  background-color: var(--area-color);
+  margin-top: 10px;
+  border: 2px solid var(--ladybug);
+  padding-left: 5px;
 }
 
 /* Form ----------------------*/
@@ -159,7 +168,19 @@ a {
 }
 
 .upload {
-  margin: 5px auto 35px;
+  margin: 5px auto 10px;
+}
+
+.submit {
+  margin-top: 50px;
+}
+
+.btn-submit {
+  margin-bottom: 30px;
+}
+
+.btn-bin svg {
+  fill: var(--danger);
 }
 
 /* Footer  ------------------------*/
@@ -179,6 +200,24 @@ footer p {
 footer p span {
   color: black;
   font-style: italic;
+}
+
+@media only screen and (min-width: 1200px) {
+  .img-size {
+    width: 600px;
+    height: 600px;
+  }
+  .img-size .img-annonce {
+    width: 600px;
+    height: 600px;
+    border: 2px solid var(--ladybug);
+  }
+
+  .details-size {
+    width: 350px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

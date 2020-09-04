@@ -13,6 +13,7 @@ body{
     height: 100%;
     --ladybug : #D03612;
     --area-color : #06070a;
+    --danger : #df4759;
 }
 
 .main-container{
@@ -113,8 +114,7 @@ a{
         color: white;
     }
 }
-
-.details-size{
+.ann-size{
     width: 265px;
     background-color: var(--area-color);
     margin-top: 10px;
@@ -122,12 +122,13 @@ a{
     padding-left: 5px;
 }
 
+
 /* details -----------------------*/
 
 .redirect{ 
     margin-left: 150px; ;
     svg{
-    fill: #df4759;
+    fill: var(--danger);
     }
 }
 
@@ -153,6 +154,14 @@ a{
 
 }
 
+.details-size{
+    width: 265px;
+    background-color: var(--area-color);
+    margin-top: 10px;
+    border: 2px solid var(--ladybug);
+    padding-left: 5px;
+}
+
 /* Form ----------------------*/
 .form-control{
     background-color: darken(#0f131a, 5%);
@@ -174,7 +183,19 @@ a{
     }
 }
 .upload{
-    margin: 5px auto 35px;
+    margin: 5px auto 10px;
+}
+.submit{
+    margin-top: 50px;
+}
+
+.btn-submit{
+    margin-bottom: 30px;
+}
+.btn-bin{
+    svg{
+        fill: var(--danger)
+    }
 }
 
 /* Footer  ------------------------*/
@@ -195,4 +216,26 @@ footer{
             font-style: italic;
         }
     }
+}
+
+
+
+@media only screen and (min-width:1200px){
+    .img-size{
+        width: 600px;
+        height: 600px;
+        .img-annonce{
+            width: 600px;
+            height: 600px;
+            border: 2px solid var(--ladybug);
+        }
+    }
+
+    .details-size{
+        width: 350px;
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+
+
 }
