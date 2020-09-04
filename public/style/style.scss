@@ -132,6 +132,16 @@ a{
     }
 }
 
+.detail-img-size{
+    width: 265px;
+    height: 265px;
+    .detail-img-annonce{
+        width: 265px;
+        height: 265px;
+        border: 2px solid var(--ladybug);
+    }
+}
+
 .seller-infos{
     svg{
         fill: white;
@@ -181,6 +191,9 @@ a{
             color: var(--ladybug);
         }
     }
+    input:invalid{
+        content: "Les champs avec un * doivent être remplis";
+    }
 }
 .upload{
     margin: 5px auto 10px;
@@ -221,10 +234,10 @@ footer{
 
 
 @media only screen and (min-width:1200px){
-    .img-size{
+    .detail-img-size{
         width: 600px;
         height: 600px;
-        .img-annonce{
+        .detail-img-annonce{
             width: 600px;
             height: 600px;
             border: 2px solid var(--ladybug);

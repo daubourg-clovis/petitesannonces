@@ -28,6 +28,16 @@ $router->map( 'POST', '/annonces/ajout/', function() {
 	echo "coucou";
 	\App\Annonce::ajout();
 });
+//map modifier
+
+$router->map( 'POST', '/annonces/modifier', function() {
+	echo "coucou";
+	\App\Annonce::modif();
+});
+
+$router->map( 'GET', '/annonces/modifier', function() {
+	\App\Annonce::formulairemodif ();
+});
 
 
 $router->map( 'POST', '/annonces/recherche/', function() {

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   scroll-behavior: smooth;
 }
@@ -125,6 +126,16 @@ a {
   fill: var(--danger);
 }
 
+.detail-img-size {
+  width: 265px;
+  height: 265px;
+}
+.detail-img-size .detail-img-annonce {
+  width: 265px;
+  height: 265px;
+  border: 2px solid var(--ladybug);
+}
+
 .seller-infos svg {
   fill: white;
 }
@@ -166,6 +177,9 @@ a {
 .add-form label span {
   color: var(--ladybug);
 }
+.add-form input:invalid {
+  content: "Les champs avec un * doivent être remplis";
+}
 
 .upload {
   margin: 5px auto 10px;
@@ -203,11 +217,11 @@ footer p span {
 }
 
 @media only screen and (min-width: 1200px) {
-  .img-size {
+  .detail-img-size {
     width: 600px;
     height: 600px;
   }
-  .img-size .img-annonce {
+  .detail-img-size .detail-img-annonce {
     width: 600px;
     height: 600px;
     border: 2px solid var(--ladybug);
