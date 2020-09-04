@@ -13,6 +13,7 @@ body {
   height: 100%;
   --ladybug: #D03612;
   --area-color: #06070a;
+  --danger: #df4759;
 }
 
 .main-container {
@@ -109,7 +110,7 @@ a {
   color: white;
 }
 
-.details-size {
+.ann-size {
   width: 265px;
   background-color: var(--area-color);
   margin-top: 10px;
@@ -126,11 +127,29 @@ a {
   margin-left: 150px;
 }
 .redirect svg {
-  fill: #df4759;
+  fill: var(--danger);
+}
+
+.detail-img-size {
+  width: 265px;
+  height: 265px;
+}
+.detail-img-size .detail-img-annonce {
+  width: 265px;
+  height: 265px;
+  border: 2px solid var(--ladybug);
 }
 
 .seller-infos svg {
   fill: white;
+}
+
+.detail-titre {
+  text-transform: capitalize;
+  font-size: 1.7rem !important;
+  text-align: center;
+  margin-bottom: 50px;
+  color: white !important;
 }
 
 .seeDetails h3 {
@@ -143,6 +162,21 @@ a {
 .cat-filter {
   margin-top: 5px;
   width: 90px;
+}
+
+.details-size {
+  width: 265px;
+  background-color: var(--area-color);
+  margin-top: 10px;
+  border: 2px solid var(--ladybug);
+  padding-left: 5px;
+}
+
+.btn-dwl {
+  width: 265px;
+}
+.btn-dwl svg {
+  fill: white;
 }
 
 /* Form ----------------------*/
@@ -163,9 +197,24 @@ a {
 .add-form label span {
   color: var(--ladybug);
 }
+.add-form input:invalid {
+  content: "Les champs avec un * doivent être remplis";
+}
 
 .upload {
-  margin: 5px auto 35px;
+  margin: 5px auto 10px;
+}
+
+.submit {
+  margin-top: 50px;
+}
+
+.btn-submit {
+  margin-bottom: 30px;
+}
+
+.btn-bin svg {
+  fill: var(--danger);
 }
 
 /* Footer  ------------------------*/
@@ -232,6 +281,25 @@ footer p span {
   .redirect svg {
     transform: scale(1.5);
     margin-top: 35px;
+  }
+  .detail-img-size {
+    width: 600px;
+    height: 600px;
+  }
+  .detail-img-size .detail-img-annonce {
+    width: 600px;
+    height: 600px;
+    border: 2px solid var(--ladybug);
+  }
+
+  .details-size {
+    width: 350px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+
+  .btn-dwl {
+    width: 350px;
   }
 }
 
