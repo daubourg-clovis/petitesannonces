@@ -116,6 +116,7 @@ a {
   margin-top: 10px;
   border: 2px solid var(--ladybug);
   padding-left: 5px;
+  min-height: 129px;
 }
 
 .price::after {
@@ -150,6 +151,8 @@ a {
   text-align: center;
   margin-bottom: 50px;
   color: white !important;
+  max-width: 260px;
+  width: 100%;
 }
 
 .seeDetails h3 {
@@ -170,6 +173,7 @@ a {
   margin-top: 10px;
   border: 2px solid var(--ladybug);
   padding-left: 5px;
+  margin-bottom: 10px;
 }
 
 .btn-dwl {
@@ -236,6 +240,231 @@ footer p span {
   font-style: italic;
 }
 
+@media only screen and (min-width: 576px) {
+  .companyname {
+    margin-bottom: 35px;
+  }
+
+  .logo {
+    height: 65px;
+    width: auto;
+  }
+
+  .center-annonce {
+    margin: 65px auto 0px;
+  }
+
+  .align h1 {
+    text-align: center;
+    font-size: 3rem;
+  }
+
+  .pagetitle {
+    border-radius: 0 5px 5px 0;
+    margin-bottom: 35px;
+    margin-top: 35px;
+    margin-left: -15px;
+  }
+  .pagetitle h2 {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  .center-div {
+    margin: 20px auto 0px;
+    width: 80%;
+  }
+  .center-div .btn {
+    width: 405px;
+  }
+
+  .search {
+    width: 321px;
+  }
+
+  .redirect {
+    position: absolute;
+    right: 50px;
+  }
+  .redirect svg {
+    transform: scale(1.5);
+    margin-top: 35px;
+  }
+
+  .detail-img-size {
+    margin: auto;
+    width: 400px;
+    height: 400px;
+  }
+  .detail-img-size .detail-img-annonce {
+    width: 400px;
+    height: 400px;
+    border: 2px solid var(--ladybug);
+  }
+
+  .details-size {
+    width: 400px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-dwl {
+    width: 400px;
+  }
+
+  .p-btn-dwl {
+    width: 400px;
+    margin: auto;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .companyname {
+    margin-bottom: 35px;
+  }
+
+  .logo {
+    height: 65px;
+    width: auto;
+  }
+
+  .center-annonce {
+    margin: 65px auto 0px;
+  }
+
+  .align h1 {
+    text-align: center;
+    font-size: 3rem;
+  }
+
+  .pagetitle {
+    border-radius: 0 5px 5px 0;
+    margin-bottom: 35px;
+    margin-top: 35px;
+    margin-left: -15px;
+  }
+  .pagetitle h2 {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  .center-div {
+    margin: 20px auto 0px;
+    width: 50%;
+  }
+  .center-div .btn {
+    width: 343px;
+  }
+
+  .search {
+    width: 259px;
+  }
+
+  .redirect {
+    position: absolute;
+    right: 50px;
+  }
+  .redirect svg {
+    transform: scale(1.5);
+    margin-top: 35px;
+  }
+
+  .detail-img-size {
+    margin: auto;
+    width: 400px;
+    height: 400px;
+  }
+  .detail-img-size .detail-img-annonce {
+    width: 400px;
+    height: 400px;
+    border: 2px solid var(--ladybug);
+  }
+
+  .details-size {
+    width: 400px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-dwl {
+    width: 400px;
+  }
+
+  .p-btn-dwl {
+    width: 400px;
+    margin: auto;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .companyname {
+    margin-bottom: 35px;
+  }
+
+  .logo {
+    height: 65px;
+    width: auto;
+  }
+
+  .align h1 {
+    text-align: center;
+    font-size: 3rem;
+  }
+
+  .pagetitle {
+    border-radius: 0 5px 5px 0;
+    margin-bottom: 35px;
+    margin-top: 35px;
+    margin-left: -5px;
+  }
+  .pagetitle h2 {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  .center-div {
+    margin: 20px auto 0px;
+    width: 35%;
+  }
+  .center-div .btn {
+    width: 321px;
+  }
+
+  .search {
+    width: 237px;
+  }
+
+  .redirect {
+    position: absolute;
+    right: 50px;
+  }
+  .redirect svg {
+    transform: scale(1.5);
+    margin-top: 35px;
+  }
+
+  .detail-img-size {
+    width: 400px;
+    height: 400px;
+  }
+  .detail-img-size .detail-img-annonce {
+    width: 400px;
+    height: 400px;
+    border: 2px solid var(--ladybug);
+  }
+
+  .details-size {
+    width: 300px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+
+  .btn-dwl {
+    width: 300px;
+  }
+}
 @media only screen and (min-width: 1200px) {
   .companyname {
     margin-bottom: 35px;
@@ -264,14 +493,14 @@ footer p span {
 
   .center-div {
     margin: 20px auto 0px;
-    width: 25%;
+    width: 30%;
   }
   .center-div .btn {
-    width: 321px;
+    width: 331px;
   }
 
   .search {
-    width: 237px;
+    width: 248px;
   }
 
   .redirect {
@@ -282,13 +511,14 @@ footer p span {
     transform: scale(1.5);
     margin-top: 35px;
   }
+
   .detail-img-size {
-    width: 600px;
-    height: 600px;
+    width: 550px;
+    height: 550px;
   }
   .detail-img-size .detail-img-annonce {
-    width: 600px;
-    height: 600px;
+    width: 550px;
+    height: 550px;
     border: 2px solid var(--ladybug);
   }
 
