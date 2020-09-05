@@ -58,11 +58,7 @@ class Homepage{
 
       
         
-<<<<<<< HEAD
-     //var_dump($annonces);
-=======
     // var_dump($annonces);
->>>>>>> 63db4a933950fe4a36b66d3c598cb1f5efd19588
        
      $loader = new \Twig\Loader\FilesystemLoader('../application/templates');
       $twig = new \Twig\Environment($loader, [
