@@ -36,6 +36,21 @@ $router->map( 'POST', '/annonces/recherche/', function() {
 	\App\Homepage::recherche();
 });
 
+$router->map( 'GET', '/annonces/edit/[i:id]', function($id) {
+	echo "coucou";
+	\App\Edit::formulaireEdit($id);
+});
+
+$router->map( 'POST', '/annonces/edit/[i:id]', function($id) {
+	echo "coucou";
+	\App\Edit::modifier($id);
+});
+
+$router->map( 'GET', '/annonces/delete/[i:id]', function($id) {
+	echo "coucou";
+	\App\Edit::supprimer($id);
+});
+
 // map formulaire d'ajout
 $router->map('GET', '/annonces/ajout/', function(){
 	\App\Annonce::formulaireajout();
