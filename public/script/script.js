@@ -23,9 +23,9 @@ cross.addEventListener('click', function(e){
 
 document.addEventListener('click' ,function(e){
  console.log(e.target);
- element= e.target;
+ element = e.target;
  cat = this.querySelector('.category')
- if(element !== cat){
+ if(element != cat && element != sidebar){
      sidebar.classList.remove('sidebar-toggle');
  }
 // console.log(toggle);
