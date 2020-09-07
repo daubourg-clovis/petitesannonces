@@ -123,11 +123,8 @@ a {
   content: " €";
 }
 
-.toggle {
-  cursor: pointer;
-}
-
 .category {
+  cursor: pointer;
   color: black;
 }
 

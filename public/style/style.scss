@@ -126,10 +126,9 @@ a{
 .price::after{
     content: ' €';
 }
-.toggle{
-    cursor: pointer;
-}
+
 .category{
+    cursor: pointer;
     color: black;
 }
 .category::after{
