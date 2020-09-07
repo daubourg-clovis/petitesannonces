@@ -123,6 +123,34 @@ a {
   content: " €";
 }
 
+.sidebar {
+  background-color: white;
+  color: black;
+  height: 90vh;
+  width: 300px;
+  position: absolute;
+  top: 100px;
+  right: -500px;
+  line-height: 50px;
+  font-size: 1.7rem;
+  transition: 0.8s ease-in-out;
+  padding: 5px;
+}
+.sidebar .close {
+  cursor: pointer;
+}
+.sidebar a {
+  color: black;
+}
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar-toggle {
+  transition: 0.8s ease-in-out;
+  right: 0;
+}
+
 /* details -----------------------*/
 .redirect {
   margin-left: 150px;

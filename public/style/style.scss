@@ -127,6 +127,34 @@ a{
     content: ' €';
 }
 
+.sidebar{
+    background-color: white;
+    color: black;
+    height: 90vh;
+    width: 300px;
+    position: absolute;
+    top: 100px;
+    right: -500px;
+    line-height: 50px;
+    font-size: 1.7rem;
+    transition: .8s ease-in-out;
+    padding: 5px;
+    .close{
+        cursor: pointer;
+    }
+    a{
+        color: black;
+    }
+    ul{
+        list-style: none;
+    }
+
+}
+.sidebar-toggle{
+    transition: .8s ease-in-out;
+    right: 0;
+}
+
 
 /* details -----------------------*/
 
