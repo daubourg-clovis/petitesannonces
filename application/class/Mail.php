@@ -3,7 +3,7 @@ namespace App;
 
 class Mail {
     // fonction qui créer le mail et l'envoie
-  static function mailto($mail){
+  static function mailto($mail,  $body){
         // Create the Transport
 $transport = (new \Swift_SmtpTransport('smtp.mailtrap.io', 25))
 ->setUsername('95ae2b5f9c2ba1')
@@ -16,9 +16,10 @@ $mailer = new \Swift_Mailer($transport);
 
 // Create a message
 $message = (new \Swift_Message('annonces'))
+ ->setContentType("text/html")
 ->setFrom('vanessa.knorr@outlook.fr')
 ->setTo(["vanessa.knorr@outlook.fr" => 'vanessa'])
-->setBody('Confirmez votre publication') 
+->setBody($body) 
 ;
 
 // Send the message

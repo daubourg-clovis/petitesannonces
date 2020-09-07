@@ -2,7 +2,9 @@
 
 namespace App;
 
-class Db {
+
+
+class Db extends \PDO{
 	private $login;
 	private $password;
 	public $connect;

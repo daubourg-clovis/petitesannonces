@@ -2,7 +2,11 @@
 
 namespace app;
 require_once('Db.php');
+// metre chemin verrs seveur quand projet fini
+define('BASE_PATH','') ;
+define('SERVER_URI', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME'] .':' . $_SERVER['SERVER_PORT'] . BASE_PATH) ;
 class Annonce {
+
     public $nom;
     public $prenom;
     public $description;
@@ -113,14 +117,25 @@ class Annonce {
        $stmt->bindValue(':ann_prix', $ann_prix, \PDO::PARAM_INT );
         
         $stmt->execute();
+      //  $lastid = $db->connect->lastInsertId();
+      $sql='SELECT MAX(ann_unique_id) AS ann_unique_id
+      FROM annonce';
+      $stmt = $db->connect->prepare($sql);
+      $stmt->execute();
+      $sql = $stmt->fetch();
+      var_dump($sql);
+      $lastid= $sql->ann_unique_id;
+    //  var_dump($lastid);
        // $annonce= $stmt->fetchAll();
      /*   $loader = new \Twig\Loader\FilesystemLoader('../application/templates');
        $twig = new \Twig\Environment($loader, [
        'cache' => false,
          ]); */
+
+      $body="Confirmez votre annonce <a href=" .SERVER_URI."/annonces/edit/$lastid >cliquez ici pour modifier </a>";
       
-      \App\Mail::mailto($usr_courriel);
-      header('Location: /');
+      \App\Mail::mailto($usr_courriel, $body);
+      // header('Location: /');
        //  $loader = new \Twig\Loader\FilesystemLoader('../application/templates'); 
       /*  $template = $twig->load('base.html.twig');
          echo $template->render(array(
