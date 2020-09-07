@@ -17,15 +17,17 @@ class Annonce {
     public $dateValidate;
     public $catId;
     public $userId;
-    public static $db;
+    public  $db;
+
+    
  // Evite de rappeler la fonction new Db, cette fonction s'execute automatqiuement au début
     function __construct()
     {
-        $db=new Db();
+        $this->db=new Db();
     }
-    function list(){
+    public  function list(){
        
-       
+
         $sql='SELECT ann_unique_id, ann_description, ann_image_url, ann_date_validation, usr_nom, cat_libelle, usr_prenom, usr_courriel, usr_telephone, c.ID , ann_titre, ann_prix FROM annonce INNER JOIN categorie AS c ON ID_categorie = c.ID INNER JOIN utilisateur AS u ON ID_utilisateur = u.ID';
         $annonces = $this->db->q($sql);
         return  $annonces;
@@ -43,9 +45,7 @@ class Annonce {
 
         //  $loader = new \Twig\Loader\FilesystemLoader('../application/templates'); 
         $template = $twig->load('addform.html.twig');
-          echo $template->render(array(
-              
-        ));
+          echo $template->render();
 
 
     }
@@ -143,6 +143,34 @@ class Annonce {
        )); */
     }
 
-   
-    
+    public static function modif(){
+
+    }
+
+    public static function formulairemodif (){
+
+      //Definition de path de base
+define("BASE_PATH", "");
+
+//Definition de l'URI
+define("SERVER_URI", $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . BASE_PATH) ;
+
+      $loader = new \Twig\Loader\FilesystemLoader('../application/templates');
+      $twig = new \Twig\Environment($loader, [
+      'cache' => false,
+        ]);
+        $annonce = new \app\Annonce();
+        $annonces = $annonce->list();
+
+      $template = $twig->load('editform.html.twig');
+        echo $template->render([
+          'annonce' => $annonces,
+          'basepath' => SERVER_URI,
+        ]);
+
+
+  }
+    function supprimer(){
+
+    }
 } 
