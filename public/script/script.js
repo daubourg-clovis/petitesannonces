@@ -1,20 +1,32 @@
 const toggle = document.querySelector('.toggle');
 const cross = document.querySelector('.close');
-console.log(toggle);
-console.log('coucou');
+const sidebar = document.querySelector('.sidebar');
+
 toggle.addEventListener('click', function(e){
     e.preventDefault(e);
-    const sidebar = document.querySelector('.sidebar');
-    // sidebar.style['right']=0;
-    sidebar.classList.toggle('sidebar-toggle');
-    console.log('click');
+    sidebar.classList.add('sidebar-toggle');
     
 });
 
 cross.addEventListener('click', function(e){
     e.preventDefault();
     console.log('click');
-    const sidebar = document.querySelector('.sidebar');
     sidebar.classList.remove('sidebar-toggle');
     
 });
+
+// window.addEventListener('click', function(event){
+//     if(event.target != sidebar){
+//         sidebar.classList.remove('sidebar-toggle');
+//     }
+// })
+
+document.addEventListener('click' ,function(e){
+ console.log(e.target);
+ element= e.target;
+ cat = this.querySelector('.category')
+ if(element !== cat){
+     sidebar.classList.remove('sidebar-toggle');
+ }
+// console.log(toggle);
+})
