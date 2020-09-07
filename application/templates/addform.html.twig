@@ -73,13 +73,32 @@
     
             {% block submit %} 
                 <div class="submit">
-                    <input type="submit" value="Valider" class="btn-danger btn btn-block btn-submit"> {% block delete %}{% endblock delete %}        
+                    <button type="submit" class="btn-danger btn btn-block btn-submit g-recaptcha" data-sitekey="reCAPTCHA_site_key" data-callback="onSubmit" data-action="submit">Valider</button> {% block delete %}{% endblock delete %}        
                 </div>
             {% endblock submit %}
         </div>
     </form>
 {% endblock content %}
 {% block script %}
-        <script src="{{basepath}}/script/validation.js"></script>
+
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
+
+    <script src="{{basepath}}/script/validation.js"></script>
+    <script>
+        function onSubmit(token) {
+          document.querySelector('.add-form').submit();
+        }
+      </script>
+      <script>
+        function onClick(e) {
+          e.preventDefault();
+          grecaptcha.ready(function() {
+            grecaptcha.execute('reCAPTCHA_site_key', {action: 'submit'}).then(function(token) {
+                // Add your logic to submit to your backend server here.
+            });
+          });
+        }
+    </script>
 {% endblock script %}
 

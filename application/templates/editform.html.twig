@@ -6,9 +6,12 @@
 {% block firstname %}{{annonces.usr_prenom}}{% endblock firstname %}
 {% block email %}{{annonces.usr_courriel}}{% endblock email %}
 {% block phone %}{{annonces.usr_telehone}}{% endblock phone %}
+{% block titleform %}{{annonces.ann_titre}}{% endblock titleform %}
 {% block categoryvalue %}{{annonces.ID_categorie}}{% endblock categoryvalue %}
+{% block categoryname %}{{annonces.cat_libelle}}{% endblock categoryname %}
 {% block details %}{{annonces.ann_description}}{% endblock details %}
 {% block categoryname %}{{annonces.cat_libelle}}{% endblock categoryname %}
+{% block price %}{{annonces.ann_prix}}{% endblock price %}
 {% block img_name %}<p>Votre image déjà téléchargée : 
     {% if annonce.ann_image_url is same as ('/img/') %}
     <span>Aucune</span>
@@ -20,5 +23,24 @@
 
 {% block script %}
         
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
+
+    <script src="{{basepath}}/script/validation.js"></script>
+    <script>
+        function onSubmit(token) {
+          document.querySelector('.add-form').submit();
+        }
+      </script>
+      <script>
+        function onClick(e) {
+          e.preventDefault();
+          grecaptcha.ready(function() {
+            grecaptcha.execute('reCAPTCHA_site_key', {action: 'submit'}).then(function(token) {
+                // Add your logic to submit to your backend server here.
+            });
+          });
+        }
+    </script>
 {% endblock script %}
 
