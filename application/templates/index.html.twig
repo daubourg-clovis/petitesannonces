@@ -61,7 +61,7 @@
                         {% if annonce.ann_prix %}                        
                         <p class="price">{{annonce.ann_prix}}</p>
                         {% endif %}                   
-                        <a href="/annonces/category"><p class="btn btn-danger">{{annonce.cat_libelle}}</p></a>
+                        <p onclick="filterSelection('{{annonce.cat_libelle}}')" class="btn btn-danger">{{annonce.cat_libelle}}</p>
                     </div>
                 </div>
         </div>
