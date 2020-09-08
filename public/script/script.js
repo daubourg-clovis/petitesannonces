@@ -32,7 +32,7 @@ document.addEventListener('click' ,function(e){
 
 window.addEventListener('scroll', function(){
     sidebar.classList.remove('sidebar-toggle');
-})
+});
 
 
 
@@ -75,3 +75,11 @@ function w3RemoveClass(element, name) {
   }
   element.className = arr1.join(" ");
 }
+
+
+loadAds();
+window.addEventListener('scroll', () => {
+  if(window.scrollY + window.innerHeight >= document.documentElement.scrollHeight){
+    loadAds()
+  }
+});
