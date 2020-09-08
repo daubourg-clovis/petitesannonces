@@ -1,3 +1,5 @@
+// Function to check the form taken from bootstrap doc 
+
 let surname = document.getElementById('surname');
 let firstname = document.getElementById('firstname');
 let email = document.getElementById('email');
