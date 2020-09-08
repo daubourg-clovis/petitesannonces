@@ -150,7 +150,7 @@ a {
   height: 25px;
   position: relative;
   top: -22px;
-  right: -260px;
+  right: -240px;
   cursor: pointer;
 }
 
@@ -223,7 +223,7 @@ a {
 
 .cat-filter {
   margin-top: 5px;
-  width: 90px;
+  width: 200px;
 }
 
 .details-size {
@@ -259,9 +259,6 @@ a {
 }
 .add-form label span {
   color: var(--ladybug);
-}
-.add-form input:invalid {
-  content: "Les champs avec un * doivent être remplis";
 }
 
 .upload {
@@ -377,6 +374,10 @@ footer p span {
     width: 400px;
     margin: auto;
   }
+
+  .category::after {
+    right: -320px;
+  }
 }
 @media only screen and (min-width: 768px) {
   .companyname {
@@ -456,6 +457,10 @@ footer p span {
     width: 400px;
     margin: auto;
   }
+
+  .category::after {
+    right: -300px;
+  }
 }
 @media only screen and (min-width: 992px) {
   .companyname {
@@ -515,13 +520,20 @@ footer p span {
   }
 
   .details-size {
-    width: 300px;
-    margin-top: 0px;
+    width: 400px;
+    margin-top: 10px;
     margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .btn-dwl {
-    width: 300px;
+    width: 400px;
+    margin: auto;
+  }
+
+  .category::after {
+    right: -280px;
   }
 }
 @media only screen and (min-width: 1200px) {
@@ -555,11 +567,11 @@ footer p span {
     width: 30%;
   }
   .center-div .btn {
-    width: 331px;
+    width: 386px;
   }
 
   .search {
-    width: 248px;
+    width: 302px;
   }
 
   .redirect {
@@ -572,12 +584,12 @@ footer p span {
   }
 
   .detail-img-size {
-    width: 550px;
-    height: 550px;
+    width: 650px;
+    height: 650px;
   }
   .detail-img-size .detail-img-annonce {
-    width: 550px;
-    height: 550px;
+    width: 650px;
+    height: 650px;
     border: 2px solid var(--ladybug);
   }
 
@@ -585,10 +597,20 @@ footer p span {
     width: 350px;
     margin-top: 0px;
     margin-bottom: 10px;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .btn-dwl {
     width: 350px;
+  }
+
+  .p-btn-dwl {
+    margin: 0;
+  }
+
+  .category::after {
+    right: -320px;
   }
 }
 
