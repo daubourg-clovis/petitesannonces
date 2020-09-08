@@ -15,14 +15,15 @@
             <p>Filtrer par catégories :</p>
             <nav>
                 <ul>
-                    <li><a href="">Immobilier</a></li>
-                    <li><a href="">Auto-Moto</a></li>
-                    <li><a href="">Emploi</a></li>
-                    <li><a href="">Animaux</a></li>
-                    <li><a href="">Services</a></li>
-                    <li><a href="">Vacances</a></li>
-                    <li><a href="">Affaires pro</a></li>
-                    <li><a href="">Autres</a></li>
+                    <li onclick="filterSelection('all')"><p>Voir toutes</p></li>
+                    <li onclick="filterSelection('Immobilier')"><p >Immobilier</p></li>
+                    <li onclick="filterSelection('Auto-Moto')"><p >Auto-Moto</p></li>
+                    <li onclick="filterSelection('Emploi')"><p >Emploi</p></li>
+                    <li onclick="filterSelection('Animaux')"><p >Animaux</p></li>
+                    <li onclick="filterSelection('Services')"><p >Services</p></li>
+                    <li onclick="filterSelection('Vacances')"><p >Vacances</p></li>
+                    <li onclick="filterSelection('Affaires pro')"><p >Affaires pro</p></li>
+                    <li onclick="filterSelection('Autres')"><p >Autres</p></li>
                 </ul>
             </nav>
         </div>    
@@ -43,9 +44,9 @@
     </div>
 {% endblock header %}
 {% block content %}    
-    <div class="row container mx-auto">
+    <div class="row container mx-auto cont-filter">
         {% for annonce in annonces %}
-        <div class="  col-11 col-xl-3  col-lg-4 col-md-5 col-sm-7 center-annonce offset-1 offset-xl-0 offset-lg-0 offset-md-0 " >
+        <div class="  col-11 col-xl-3  col-lg-4 col-md-5 col-sm-7 center-annonce offset-1 offset-xl-0 offset-lg-0 offset-md-0 filterDiv {{annonce.cat_libelle}}" >
                 <div class="seeDetails">
                     <div class="img-size">
                         {% if  annonce.ann_image_url is same as ('/img/') %}                        
