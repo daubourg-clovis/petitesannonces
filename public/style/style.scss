@@ -96,7 +96,17 @@ a{
 }
 
 /* Index Main  --------------------------------- */
+.cont-filter{
+    overflow: hidden;
+}
+.filterDiv{
+    float: left;
+    display: none;
+}
 
+.show{
+    display: block;
+}
 
 .img-size{
     width: 265px;
