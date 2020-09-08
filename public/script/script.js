@@ -30,6 +30,10 @@ document.addEventListener('click' ,function(e){
 
 });
 
+window.addEventListener('scroll', function(){
+    sidebar.classList.remove('sidebar-toggle');
+})
+
 
 
 
