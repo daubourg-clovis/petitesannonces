@@ -11,7 +11,11 @@
     <div class="seeDetails row">
         <div class="col">
             <div class="detail-img-size">
-                <p><img src="{{basepath}}/style/medias/placeholder.jpg" alt="" class="detail-img-annonce"></p>
+                {% if  annonce.ann_image_url is same as ('/img/') %} 
+                <p><img src="{{basepath}}/style/medias/{{annonce.cat_libelle}}.jpg" alt="" class="detail-img-annonce"></p>
+                {% else %}
+                <p><img src="{{basepath}}{{annonce.ann_image_url}}" alt="" class="detail-img-annonce"></p></a>                            
+                {% endif %}
             </div>
         </div>
         <div class="col">
@@ -35,7 +39,7 @@
                             <h3>Prix :</h3>
                         </div>
                         <div class="col">
-                            <p class="price"{{annonce.ann_prix}}</p>
+                            <p class="price">{{annonce.ann_prix}}</p>
                         </div>
                     </div>
                     {% endif %}
@@ -45,7 +49,7 @@
                 </div>
             </div>
             <div class="details-size">
-                <h3>Contacter le vendeur :</h3>
+                <h3>Contacter l'annonceur :</h3>
                 <div class="seller-infos">
                     <div class="row">
                         <div class="col-2">

@@ -49,14 +49,14 @@
                 <div class="seeDetails">
                     <div class="img-size">
                         {% if  annonce.ann_image_url is same as ('/img/') %}                        
-                        <a href="/annonces/{{annonce_unique_id}}"><p><img src="{{basepath}}/style/medias/{{annonce.cat_libelle}}.jpg" alt="" class="img-annonce"></p></a>                         
+                        <a href="/annonces/{{annonce.ann_unique_id}}" data-id="{{annonce_unique_id}}"><p><img src="{{basepath}}/style/medias/{{annonce.cat_libelle}}.jpg" alt="" class="img-annonce"></p></a>                         
                         {% else %}
-                        <a href="/annonces/{{annonce_unique_id}}"><p><img src="{{basepath}}{{annonce.ann_image_url}}" alt="" class="img-annonce"></p></a>                            
+                        <a href="/annonces/{{annonce.ann_unique_id}}" data-id="{{annonce_unique_id}}"><p><img src="{{basepath}}{{annonce.ann_image_url}}" alt="" class="img-annonce"></p></a>                            
 
                         {% endif %}
                     </div>
                     <div class="ann-size">
-                        <a href="/annonces/{{annonce_unique_id}}"><h3 class="text-truncate">{{annonce.ann_titre}}</h3></a>
+                        <a href="/annonces/{{annonce.ann_unique_id}}"><h3 class="text-truncate">{{annonce.ann_titre}}</h3></a>
                         {% if annonce.ann_prix %}                        
                         <p class="price">{{annonce.ann_prix}}</p>
                         {% endif %}                   
