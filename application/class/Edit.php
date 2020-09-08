@@ -3,7 +3,7 @@
 namespace app;
 require_once('Db.php');
 class Edit {
-    public static function formulaireEdit ($id){
+    public static function formulaireEdit ($id, $utilisateurid){
         $db=new Db();
       
         $sql='SELECT ann_unique_id, ann_description, ann_image_url, ann_date_validation, usr_nom, cat_libelle, usr_prenom, usr_courriel, usr_telephone, c.ID, ann_titre, ann_prix FROM annonce INNER JOIN categorie AS c ON ID_categorie = c.ID INNER JOIN utilisateur AS u ON ID_utilisateur = u.ID WHERE ann_unique_id=:ann_unique_id';
@@ -14,26 +14,30 @@ class Edit {
 
         $stmt->bindValue(':ann_unique_id', $id, \PDO::PARAM_INT );
 
-       $annonce = $stmt->execute();
+       $stmt->execute();
+        
+         $annonce = $stmt->fetchAll();
          
-
         $loader = new \Twig\Loader\FilesystemLoader('../application/templates');
         $twig = new \Twig\Environment($loader, [
         'cache' => false,
+
           ]);
          
 
 
         //  $loader = new \Twig\Loader\FilesystemLoader('../application/templates'); 
         $template = $twig->load('editform.html.twig');
-          echo $template->render(array(
+          echo $template->render(
+            ['annonces'=>$annonce[0]]
+          )
               
-        ));
+        ;
 
 
     }
 
-public static function modifier($id){
+public static function modifier($id, $utilisateurid){
 
     
         //  var_dump($_FILES);
@@ -79,8 +83,11 @@ public static function modifier($id){
            
            $ann_date_ecriture = date("Y-m-d");
            $sql='BEGIN;
-           UPDATE annonce SET ann_description = :ann_description, ann_est_valider = :ann_date_valider, ann_date_ecriture = :ann_date_ecriture, ann_date_validation = :ann_date_validation, iD_categorie = :iD_categorie, ann_titre = :ann_titre, ann_prix = :ann_prix WHERE annonce.ann_unique_id = :ann_unique_id; 
+           UPDATE utilisateur SET  usr_nom= :nom, usr_prenom= :prenom, usr_telephone= :telephone, usr_courriel= :courriel WHERE ID=:ID;
+           
+           UPDATE annonce SET ann_image_url = :ann_image_url,    ann_image_nom= :ann_image_nom, ann_description = :ann_description, ann_est_valider = :ann_est_valider, ann_date_ecriture = :ann_date_ecriture, iD_categorie = :iD_categorie, ann_titre = :ann_titre, ann_prix = :ann_prix WHERE annonce.ann_unique_id = :ann_unique_id; 
            COMMIT;';
+
            $stmt = $db->connect->prepare($sql);
           
                
@@ -98,7 +105,8 @@ public static function modifier($id){
           $stmt->bindParam(':telephone', $usr_telephone );
           $stmt->bindParam(':ann_titre', $ann_titre );
           $stmt->bindValue(':ann_prix', $ann_prix, \PDO::PARAM_INT );
-          $stmt->bindValue(':ann_unique_id', $id, \PDO::PARAM_INT );
+           $stmt->bindValue(':ann_unique_id', $id, \PDO::PARAM_INT );
+           $stmt->bindValue(':ID', $utilisateurid, \PDO::PARAM_INT );
            $stmt->execute();
           // $annonce= $stmt->fetchAll();
         /*   $loader = new \Twig\Loader\FilesystemLoader('../application/templates');
@@ -118,6 +126,25 @@ public static function modifier($id){
 
     }
 
+
+    // fonction de confirmation
+    public static function confirmation($id){
+      $db=new Db();
+      $sql='UPDATE annonce SET  ann_est_valider= \'true\' WHERE ann_unique_id= :ann_unique_id';
+
+      $stmt = $db->connect->prepare($sql);
+     
+          
+      // $stmt->bindParam(':ann_est_valider', true);
+
+      $stmt->bindValue(':ann_unique_id', $id, \PDO::PARAM_INT );
+      $stmt->execute();
+      header('Location: /');
+
+    }
+
+
+    // fonction supprimer
     public static function supprimer($id){
 
         $db=new Db();
@@ -132,7 +159,28 @@ public static function modifier($id){
 
        $stmt->execute();
 
+       
+      
+       $sql='SELECT usr_courriel   FROM annonce INNER JOIN utilisateur AS u ON ID_utilisateur = u.ID WHERE ann_unique_id=:ann_unique_id';
 
+
+      
+       $stmt = $db->connect->prepare($sql);
+
+       $stmt->bindValue(':ann_unique_id', $id, \PDO::PARAM_INT );
+
+      $stmt->execute();
+       
+      $sql = $stmt->fetch();
+      var_dump($sql);
+      $usr_courriel= $sql->usr_courriel;
+
+
+
+       $body="Votre annonce a été crée. <a href=" .SERVER_URI."/annonces/delete/$id >cliquez ici pour supprimer </a> ";
+       echo $body;
+       \App\Mail::mailto($usr_courriel, $body);
        header('Location: /');
+       
     }
 }

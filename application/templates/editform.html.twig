@@ -1,7 +1,7 @@
 {% extends "addform.html.twig" %}
 {% block title %}Modifier{% endblock title %}
 {% block h2 %}Modifier{% endblock h2 %}
-{% block action %}/annonces/modifier{% endblock action %}
+{% block action %}/annonces/edit/{{annonces.ann_unique_id}}{% endblock action %}
 {% block surname %}{{annonces.usr_nom}}{% endblock surname %}
 {% block firstname %}{{annonces.usr_prenom}}{% endblock firstname %}
 {% block email %}{{annonces.usr_courriel}}{% endblock email %}

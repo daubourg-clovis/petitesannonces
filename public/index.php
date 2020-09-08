@@ -25,13 +25,18 @@ $router->map( 'GET', '/annonces/[i:id]', function( $id ) {
 });
 // map ajout
 $router->map( 'POST', '/annonces/ajout/', function() {
-	echo "coucou";
+	
 	\App\Annonce::ajout();
+});
+// map confirmation
+$router->map( 'GET', '/annonces/confirmer/[i:id]', function($id ) {
+	
+	\App\Edit::confirmation($id );
 });
 //map modifier
 
 $router->map( 'POST', '/annonces/modifier', function() {
-	echo "coucou";
+	
 	\App\Annonce::modif();
 });
 
@@ -42,20 +47,20 @@ $router->map( 'GET', '/annonces/modifier', function() {
 
 $router->map( 'POST', '/annonces/recherche/', function() {
 	
-	echo "coucou";
+	
 	\App\Homepage::recherche();
 });
-
-$router->map( 'GET', '/annonces/edit/[i:id]', function($id) {
-	echo "coucou";
-	\App\Edit::formulaireEdit($id);
+// map edit
+$router->map( 'GET', '/annonces/edit/[i:id]/[i:utilisateurid]', function($id, $utilisateurid) {
+	
+	\App\Edit::formulaireEdit($id, $utilisateurid);
 });
 
-$router->map( 'POST', '/annonces/edit/[i:id]', function($id) {
-	echo "coucou";
-	\App\Edit::modifier($id);
+$router->map( 'POST', '/annonces/edit/[i:id]/[i:utilisateurid]', function($id, $utilisateurid) {
+	
+	\App\Edit::modifier($id, $utilisateurid );
 });
-
+//map delete
 $router->map( 'GET', '/annonces/delete/[i:id]', function($id) {
 	echo "coucou";
 	\App\Edit::supprimer($id);

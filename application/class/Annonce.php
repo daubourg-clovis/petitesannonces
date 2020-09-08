@@ -17,7 +17,7 @@ class Annonce {
     public $dateValidate;
     public $catId;
     public $userId;
-    public  $db;
+    public $db;
 
     
  // Evite de rappeler la fonction new Db, cette fonction s'execute automatqiuement au début
@@ -125,6 +125,14 @@ class Annonce {
       $sql = $stmt->fetch();
       var_dump($sql);
       $lastid= $sql->ann_unique_id;
+
+      $sql='SELECT MAX(ID) AS ID
+      FROM utilisateur';
+      $stmt = $db->connect->prepare($sql);
+      $stmt->execute();
+      $sql = $stmt->fetch();
+      var_dump($sql);
+      $lastutilisateurid= $sql->ID;
     //  var_dump($lastid);
        // $annonce= $stmt->fetchAll();
      /*   $loader = new \Twig\Loader\FilesystemLoader('../application/templates');
@@ -132,10 +140,10 @@ class Annonce {
        'cache' => false,
          ]); */
 
-      $body="Confirmez votre annonce <a href=" .SERVER_URI."/annonces/edit/$lastid >cliquez ici pour modifier </a>";
-      
+      $body="Confirmez votre annonce <a href=" .SERVER_URI."/annonces/confirmer/$lastid >cliquez ici pour confirmer </a> <br> <a href=" .SERVER_URI."/annonces/edit/$lastid/$lastutilisateurid >cliquez ici pour modifier </a>";
+      echo $body;
       \App\Mail::mailto($usr_courriel, $body);
-      // header('Location: /');
+      header('Location: /');
        //  $loader = new \Twig\Loader\FilesystemLoader('../application/templates'); 
       /*  $template = $twig->load('base.html.twig');
          echo $template->render(array(
@@ -150,10 +158,10 @@ class Annonce {
     public static function formulairemodif (){
 
       //Definition de path de base
-define("BASE_PATH", "");
+// define("BASE_PATH", "");
 
 //Definition de l'URI
-define("SERVER_URI", $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . BASE_PATH) ;
+// define("SERVER_URI", $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . BASE_PATH) ;
 
       $loader = new \Twig\Loader\FilesystemLoader('../application/templates');
       $twig = new \Twig\Environment($loader, [
@@ -170,7 +178,5 @@ define("SERVER_URI", $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'
 
 
   }
-    function supprimer(){
-
-    }
+    
 } 
