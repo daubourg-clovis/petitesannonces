@@ -289,6 +289,13 @@ a{
     }
 }
 
+.modal-content{
+    background-color: var(--main-color) ;
+    h5{
+        color: var(--danger);
+    }
+}
+
 /* Footer  ------------------------*/
 
 footer{

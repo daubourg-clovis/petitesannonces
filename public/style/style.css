@@ -277,6 +277,13 @@ a {
   fill: var(--danger);
 }
 
+.modal-content {
+  background-color: var(--main-color);
+}
+.modal-content h5 {
+  color: var(--danger);
+}
+
 /* Footer  ------------------------*/
 footer {
   text-align: center;
