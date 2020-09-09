@@ -25,14 +25,14 @@ class Annonce {
     {
         $this->db=new Db();
     }
-    public  function list(){
+    // public  function list(){
        
 
-        $sql='SELECT ann_unique_id, ann_description, ann_image_url, ann_date_validation, usr_nom, cat_libelle, usr_prenom, usr_courriel, usr_telephone, c.ID , ann_titre, ann_prix FROM annonce INNER JOIN categorie AS c ON ID_categorie = c.ID INNER JOIN utilisateur AS u ON ID_utilisateur = u.ID';
-        $annonces = $this->db->q($sql);
-        return  $annonces;
+    //     $sql='SELECT  ann_unique_id, ann_description, ann_image_url, ann_date_validation, usr_nom, cat_libelle, usr_prenom, usr_courriel, usr_telephone, c.ID , ann_titre, ann_prix FROM annonce INNER JOIN categorie AS c ON ID_categorie = c.ID INNER JOIN utilisateur AS u ON ID_utilisateur = u.ID WHERE ann_est_valider = \"true\" ' ;
+    //     $annonces = $this->db->q($sql);
+    //     return  $annonces;
 
-    }   
+    // }   
 
     // Ajout
     public static function formulaireajout (){

@@ -13,6 +13,10 @@ $router->map( 'GET', '/', function() {
 	\App\Homepage::homepage();
 });
 
+$router->map( 'GET', '/[i:page]/[i:nbannonce]', function($page, $nbannonce) {
+	\App\Homepage::homepageparam($page, $nbannonce);
+});
+
 // map user details page
 $router->map( 'GET', '/user/[i:id]/', function( $id ) {
 	
