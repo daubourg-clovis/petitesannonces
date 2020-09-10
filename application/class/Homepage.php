@@ -31,7 +31,7 @@ class Homepage{
       var_dump($nbtotalannonce);
       $nbpages= ((int)$nbtotalannonce+ $nbannonce)/$nbannonce;
       var_dump(intval($nbpages));
-      $sql='SELECT ann_unique_id, ann_description, ann_image_url, ann_date_validation, usr_nom, cat_libelle, usr_prenom, usr_courriel, usr_telephone, c.ID, ann_titre, ann_prix FROM annonce INNER JOIN categorie AS c ON ID_categorie = c.ID INNER JOIN utilisateur AS u ON ID_utilisateur = u.ID WHERE ann_est_valider = \'true\' LIMIT  :debut, :nbannonce';
+      $sql='SELECT ann_unique_id, ann_description, ann_image_url, ann_date_validation, usr_nom, cat_libelle, usr_prenom, usr_courriel, usr_telephone, c.ID, ann_titre, ann_prix FROM annonce INNER JOIN categorie AS c ON ID_categorie = c.ID INNER JOIN utilisateur AS u ON ID_utilisateur = u.ID WHERE ann_est_valider = \'true\'  LIMIT  :debut, :nbannonce';
 
       $stmt = $db->connect->prepare($sql);
       $stmt->bindValue( ":debut", $debut,   \PDO::PARAM_INT);
@@ -52,6 +52,9 @@ class Homepage{
         echo $template->render([
           'annonces' => $annonces,
           'basepath' => SERVER_URI,
+          'debut' => $debut,
+          'nbpages' => $nbpages,
+          'page' => $page,
         ]); 
 
 
