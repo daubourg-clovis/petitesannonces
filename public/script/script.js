@@ -83,3 +83,14 @@ window.addEventListener('scroll', () => {
     loadAds()
   }
 });
+
+
+// Script for infinite scroll 
+
+var elem = document.querySelector('.inf-scroll');
+var infScroll = new InfiniteScroll( elem, {
+  // options
+  path: '.pagination__next',
+  append: '.post',
+  history: false,
+});
