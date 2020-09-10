@@ -11,7 +11,11 @@
     <div class="seeDetails row">
         <div class="col">
             <div class="detail-img-size">
-                <p><img src="{{basepath}}/style/medias/placeholder.jpg" alt="" class="detail-img-annonce"></p>
+                {% if  annonce.ann_image_url is same as ('/img/') %} 
+                <p><img src="{{basepath}}/style/medias/{{annonce.cat_libelle}}.jpg" alt="" class="detail-img-annonce"></p>
+                {% else %}
+                <p><img src="{{basepath}}{{annonce.ann_image_url}}" alt="" class="detail-img-annonce"></p></a>                            
+                {% endif %}
             </div>
         </div>
         <div class="col">
@@ -26,7 +30,7 @@
                             <h3>Catégorie : </h3>
                         </div>
                         <div class="col">
-                            <p class="cat-filter"><a href="" class="btn btn-danger">{{annonce.cat_libelle}}</a> </p>
+                            <p class="cat-filter"><a href="/" class="btn btn-danger">{{annonce.cat_libelle}}</a> </p>
                         </div>
                     </div>
                     {% if  annonce.ann_prix %}                        
@@ -35,7 +39,7 @@
                             <h3>Prix :</h3>
                         </div>
                         <div class="col">
-                            <p>{{annonce.ann_prix}}</p>
+                            <p class="price">{{annonce.ann_prix}}</p>
                         </div>
                     </div>
                     {% endif %}
@@ -45,7 +49,7 @@
                 </div>
             </div>
             <div class="details-size">
-                <h3>Contacter le vendeur :</h3>
+                <h3>Contacter l'annonceur :</h3>
                 <div class="seller-infos">
                     <div class="row">
                         <div class="col-2">
@@ -61,7 +65,7 @@
                             <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z"/></svg></p>
                         </div>
                         <div class="col">
-                            <p>{{annonce.usr_courriel}}</p>
+                            <a href="mailto:{{annonce.usr_courriel}}">{{annonce.usr_courriel}}</a>
                         </div>
                     </div>
                     <div class="row">
@@ -69,7 +73,7 @@
                             <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18.48 22.926l-1.193.658c-6.979 3.621-19.082-17.494-12.279-21.484l1.145-.637 3.714 6.467-1.139.632c-2.067 1.245 2.76 9.707 4.879 8.545l1.162-.642 3.711 6.461zm-9.808-22.926l-1.68.975 3.714 6.466 1.681-.975-3.715-6.466zm8.613 14.997l-1.68.975 3.714 6.467 1.681-.975-3.715-6.467z"/></svg></p>
                         </div>
                         <div class="col">
-                            <p>{{annonce.usr_telephone}}</p>
+                            <a href="tel:{{annonce.usr_telephone}}">{{annonce.usr_telephone}}</a>
                         </div>
                     </div>
                 </div>

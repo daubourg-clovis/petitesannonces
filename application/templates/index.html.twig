@@ -3,29 +3,27 @@
 {% block h2 %}Annonces{% endblock h2 %}
 {% block header %}
     <div class="container">
-        <a href="" class="toggle">
-            <div class="row  col-9 style-header center-div ">
+
+            <div class="row  col-9 style-header center-div toggle">
                 <div class="col-3 col-xl-3 ">
-                    <p class="category">Catégories</p>
-                </div>
-                <div class="col-2 offset-6 ">
-                    <p><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M24 18v1h-24v-1h24zm0-6v1h-24v-1h24zm0-6v1h-24v-1h24z" fill="#1040e2"/><path d="M24 19h-24v-1h24v1zm0-6h-24v-1h24v1zm0-6h-24v-1h24v1z"/></svg></p>
+                    <a class="category">Catégories</a>
                 </div>
             </div>
-        </a>
+
         <div class="sidebar">
             <p class="close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg></p>
             <p>Filtrer par catégories :</p>
             <nav>
                 <ul>
-                    <li><a href="">Immobilier</a></li>
-                    <li><a href="">Auto-Moto</a></li>
-                    <li><a href="">Emploi</a></li>
-                    <li><a href="">Animaux</a></li>
-                    <li><a href="">Services</a></li>
-                    <li><a href="">Vacances</a></li>
-                    <li><a href="">Affaires pro</a></li>
-                    <li><a href="">Autres</a></li>
+                    <li onclick="filterSelection('all')"><p>Voir toutes</p></li>
+                    <li onclick="filterSelection('Immobilier')"><p >Immobilier</p></li>
+                    <li onclick="filterSelection('Auto-Moto')"><p >Auto-Moto</p></li>
+                    <li onclick="filterSelection('Emploi')"><p >Emploi</p></li>
+                    <li onclick="filterSelection('Animaux')"><p >Animaux</p></li>
+                    <li onclick="filterSelection('Services')"><p >Services</p></li>
+                    <li onclick="filterSelection('Vacances')"><p >Vacances</p></li>
+                    <li onclick="filterSelection('Affaires pro')"><p >Affaires pro</p></li>
+                    <li onclick="filterSelection('Autres')"><p >Autres</p></li>
                 </ul>
             </nav>
         </div>    
@@ -46,24 +44,24 @@
     </div>
 {% endblock header %}
 {% block content %}    
-    <div class="row container mx-auto">
+    <div class="row container mx-auto cont-filter">
         {% for annonce in annonces %}
-        <div class="  col-11 col-xl-3  col-lg-4 col-md-5 col-sm-7 center-annonce offset-1 offset-xl-0 offset-lg-0 offset-md-0 " >
+        <div class="  col-11 col-xl-3  col-lg-4 col-md-5 col-sm-7 center-annonce offset-1 offset-xl-0 offset-lg-0 offset-md-0 filterDiv {{annonce.cat_libelle}}" >
                 <div class="seeDetails">
                     <div class="img-size">
                         {% if  annonce.ann_image_url is same as ('/img/') %}                        
-                        <a href="/annonces/{{annonce_unique_id}}"><p><img src="{{basepath}}/style/medias/{{annonce.cat_libelle}}.jpg" alt="" class="img-annonce"></p></a>                         
+                        <a href="/annonces/{{annonce.ann_unique_id}}" data-id="{{annonce_unique_id}}"><p><img src="{{basepath}}/style/medias/{{annonce.cat_libelle}}.jpg" alt="" class="img-annonce"></p></a>                         
                         {% else %}
-                        <a href="/annonces/{{annonce_unique_id}}"><p><img src="{{basepath}}{{annonce.ann_image_url}}" alt="" class="img-annonce"></p></a>                            
+                        <a href="/annonces/{{annonce.ann_unique_id}}" data-id="{{annonce_unique_id}}"><p><img src="{{basepath}}{{annonce.ann_image_url}}" alt="" class="img-annonce"></p></a>                            
 
                         {% endif %}
                     </div>
                     <div class="ann-size">
-                        <a href="/annonces/{{annonce_unique_id}}"><h3 class="text-truncate">{{annonce.ann_titre}}</h3></a>
+                        <a href="/annonces/{{annonce.ann_unique_id}}"><h3 class="text-truncate">{{annonce.ann_titre}}</h3></a>
                         {% if annonce.ann_prix %}                        
                         <p class="price">{{annonce.ann_prix}}</p>
                         {% endif %}                   
-                        <a href="/annonces/category"><p class="btn btn-danger">{{annonce.cat_libelle}}</p></a>
+                        <p onclick="filterSelection('{{annonce.cat_libelle}}')" class="btn btn-danger">{{annonce.cat_libelle}}</p>
                     </div>
                 </div>
         </div>

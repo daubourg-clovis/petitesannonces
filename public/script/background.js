@@ -1,4 +1,4 @@
-
+// Script taken on codepen and slightly adapted (size and nober of dots) to create random dots on background
   
     function freshDot(){
       this.obj = document.createElement("div");

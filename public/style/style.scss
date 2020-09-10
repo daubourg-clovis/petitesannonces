@@ -96,7 +96,17 @@ a{
 }
 
 /* Index Main  --------------------------------- */
+.cont-filter{
+    overflow: hidden;
+}
+.filterDiv{
+    float: left;
+    display: none;
+}
 
+.show{
+    display: block;
+}
 
 .img-size{
     width: 265px;
@@ -125,6 +135,23 @@ a{
 }
 .price::after{
     content: ' €';
+}
+
+.category{
+    cursor: pointer;
+    color: black;
+}
+.category::after{
+    content: '';
+    background-image: url(medias/cat-menu.png);
+    background-size: 100% 100%;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    top: -22px;
+    right: -240px;
+    cursor: pointer;
 }
 
 .sidebar{
@@ -203,7 +230,7 @@ a{
 
 .cat-filter{
     margin-top: 5px;
-    width: 90px;
+    width: 200px;
 
 }
 
@@ -244,9 +271,7 @@ a{
             color: var(--ladybug);
         }
     }
-    input:invalid{
-        content: "Les champs avec un * doivent être remplis";
-    }
+
 }
 .upload{
     margin: 5px auto 10px;
@@ -261,6 +286,13 @@ a{
 .btn-bin{
     svg{
         fill: var(--danger)
+    }
+}
+
+.modal-content{
+    background-color: var(--main-color) ;
+    h5{
+        color: var(--danger);
     }
 }
 
@@ -362,6 +394,9 @@ footer{
         width: 400px;
         margin: auto;
     }
+    .category::after{
+        right: -320px;
+    }
 }
 
 @media only screen and (min-width : 768px){
@@ -440,6 +475,9 @@ footer{
         width: 400px;
         margin: auto;
     }
+    .category::after{
+        right: -300px;
+    }
 }
 
 @media only screen and (min-width : 992px){
@@ -503,12 +541,19 @@ footer{
     }
 
     .details-size{
-        width: 300px;
-        margin-top: 0px;
+        width: 400px;
+        margin-top: 10px;
         margin-bottom: 10px;
+        margin-left: auto;
+        margin-right: auto;
     }
     .btn-dwl{
-        width: 300px;
+        width: 400px;
+        margin: auto;
+    }
+
+    .category::after{
+        right: -280px;
     }
 }
 
@@ -544,11 +589,11 @@ footer{
         margin: 20px auto 0px ;
         width: 30%;
         .btn{
-            width: 331px;
+            width: 386px;
         }
     }
     .search{
-        width: 248px;
+        width: 302px;
     }
 
     .redirect{
@@ -561,11 +606,11 @@ footer{
     }
 
     .detail-img-size{
-        width: 550px;
-        height: 550px;
+        width: 650px;
+        height: 650px;
         .detail-img-annonce{
-            width: 550px;
-            height: 550px;
+            width: 650px;
+            height: 650px;
             border: 2px solid var(--ladybug);
         }
     }
@@ -574,9 +619,18 @@ footer{
         width: 350px;
         margin-top: 0px;
         margin-bottom: 10px;
+        margin-left: 0;
+        margin-right: 0;
     }
     .btn-dwl{
         width: 350px;
+    }
+    .p-btn-dwl{
+        margin: 0;
+    }
+
+    .category::after{
+        right: -320px;
     }
    
 

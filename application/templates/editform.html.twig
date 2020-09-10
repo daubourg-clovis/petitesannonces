@@ -5,20 +5,50 @@
 {% block surname %}{{annonces.usr_nom}}{% endblock surname %}
 {% block firstname %}{{annonces.usr_prenom}}{% endblock firstname %}
 {% block email %}{{annonces.usr_courriel}}{% endblock email %}
-{% block phone %}{{annonces.usr_telehone}}{% endblock phone %}
+{% block phone %}{{annonces.usr_telephone}}{% endblock phone %}
+{% block titleform %}{{annonces.ann_titre}}{% endblock titleform %}
 {% block categoryvalue %}{{annonces.ID_categorie}}{% endblock categoryvalue %}
 {% block details %}{{annonces.ann_description}}{% endblock details %}
 {% block categoryname %}{{annonces.cat_libelle}}{% endblock categoryname %}
+{% block price %}{{annonces.ann_prix}}{% endblock price %}
 {% block img_name %}<p>Votre image déjà téléchargée : 
-    {% if annonce.ann_image_url is same as ('/img/') %}
+    {% if annonces.ann_image_url is same as ('/img/') %}
     <span>Aucune</span>
     {% else %}
     <span>{{annonces.ann_img_url}}</span>
 {% endif %}.</p> {% endblock img_name %}
-{% block delete %}<a href="delete.php" class="btn btn-secondary btn-block btn-bin"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9 19c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5-17v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712zm-3 4v16h-14v-16h-2v18h18v-18h-2z"/></svg></a>{% endblock delete %}
+{% block delete %}<button class="btn btn-secondary btn-block btn-bin" data-toggle="modal" data-target="#staticBackdrop"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9 19c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5-17v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712zm-3 4v16h-14v-16h-2v18h18v-18h-2z"/></svg></button>
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Supprimer</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Êtes vous sur de vouloir supprimer cette annonce ? <br> Vous ne pourrez pas revenir en arrière !</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-primary" id="deleteBtn">Supprimer</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock delete %}
 
 
 {% block script %}
-        
+
+      {# <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+        function onSubmit(token) {
+          document.getElementsByClassName(".add-form").submit();
+        }
+      </script> #}
+    <script src="{{basepath}}/script/validation.js"></script>
+    <script src="{{basepath}}/script/delete.js"></script>
 {% endblock script %}
 
