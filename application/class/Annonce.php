@@ -49,11 +49,15 @@ class Annonce {
 
 
     }
-    //$ann_description,$ann_image_url, $ann_image_nom, $ann_est_valider, $ann_date_ecriture, $iD_categorie, $ID_utilisateur
+
+
+    //---------------------------------------------------------------------------
+
      public static function ajout(){
      //  var_dump($_FILES);
      //  var_dump($_POST);
-      
+     
+      // Partie de l'uploader d'image dans ls fichiers du serveur
        $filename = $_FILES['upload']['tmp_name'];
        var_dump($_SERVER['DOCUMENT_ROOT']);
        $basename = $_SERVER["DOCUMENT_ROOT"];
@@ -93,6 +97,9 @@ class Annonce {
         $ann_prix = trim($_POST['price']);
         
         $ann_date_ecriture = date("Y-m-d");
+
+        // Ajout de l'annonce dans la base de donné
+        // -----------------------------------------------------------------------------------------------------
         $sql='BEGIN;
         INSERT INTO utilisateur (usr_courriel, usr_nom, usr_prenom, usr_telephone) VALUES (:courriel, :nom, :prenom, :telephone);
         SET @ID_utilisateur = LAST_INSERT_ID();

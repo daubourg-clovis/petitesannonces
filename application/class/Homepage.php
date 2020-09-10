@@ -16,9 +16,16 @@ class Homepage{
 
     public static function homepageparam($page, $nbannonce){
       $debut = ($page*$nbannonce)-$nbannonce;
+
        // Lister annonces 
       $db=new Db();
 
+
+      // Récupération des catégories
+
+
+          //Recupération des pages pour la pagination
+          //----------------------------------------------------------------------------------------------------------------------------------------
       $sql='SELECT COUNT(ann_unique_id) AS nbtotalannonce FROM annonce';
       
       // $nbtotalannonce=$db->q($sql);
@@ -31,6 +38,10 @@ class Homepage{
       var_dump($nbtotalannonce);
       $nbpages= ((int)$nbtotalannonce+ $nbannonce)/$nbannonce;
       var_dump(intval($nbpages));
+
+      // Récupération de la liste des annonces 
+      //-------------------------------------------------------------------------------------------------------------------------------------------------
+      
       $sql='SELECT ann_unique_id, ann_description, ann_image_url, ann_date_validation, usr_nom, cat_libelle, usr_prenom, usr_courriel, usr_telephone, c.ID, ann_titre, ann_prix FROM annonce INNER JOIN categorie AS c ON ID_categorie = c.ID INNER JOIN utilisateur AS u ON ID_utilisateur = u.ID WHERE ann_est_valider = \'true\'  LIMIT  :debut, :nbannonce';
 
       $stmt = $db->connect->prepare($sql);
