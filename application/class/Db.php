@@ -34,7 +34,7 @@ class Db extends \PDO{
 			die($msg);
 		}
 	}
-
+    //   Fonction d'executer des requettes
 	public function q($sql,Array $cond = null){
 		$stmt = $this->connect->prepare($sql);
 		if($cond){

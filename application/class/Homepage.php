@@ -23,6 +23,9 @@ class Homepage{
 
       // Récupération des catégories
 
+     $sql='SELECT * FROM categorie';
+      $categories = $db->q($sql);
+   
 
           //Recupération des pages pour la pagination
           //----------------------------------------------------------------------------------------------------------------------------------------
@@ -33,11 +36,11 @@ class Homepage{
       $stmt->execute();
 
       $sql = $stmt->fetch();
-      var_dump($sql);
+      // var_dump($sql);
       $nbtotalannonce= $sql->nbtotalannonce;
-      var_dump($nbtotalannonce);
+      // var_dump($nbtotalannonce);
       $nbpages= ((int)$nbtotalannonce+ $nbannonce)/$nbannonce;
-      var_dump(intval($nbpages));
+      // var_dump(intval($nbpages));
 
       // Récupération de la liste des annonces 
       //-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -50,8 +53,8 @@ class Homepage{
 
        $stmt->execute();
        $annonces= $stmt->fetchAll();
- 
-     //var_dump($annonces);
+      //  var_dump($categories);
+    // var_dump($annonces);
        
      $loader = new \Twig\Loader\FilesystemLoader('../application/templates');
       $twig = new \Twig\Environment($loader, [
@@ -66,7 +69,10 @@ class Homepage{
           'debut' => $debut,
           'nbpages' => $nbpages,
           'page' => $page,
+          'categories' => $categories,
+
         ]); 
+
 
 
      

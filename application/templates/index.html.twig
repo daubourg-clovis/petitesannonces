@@ -15,15 +15,18 @@
             <p>Filtrer par catégories :</p>
             <nav>
                 <ul>
-                    <li onclick="filterSelection('all')"><p>Voir toutes</p></li>
-                    <li onclick="filterSelection('Immobilier')"><p >Immobilier</p></li>
-                    <li onclick="filterSelection('Auto-Moto')"><p >Auto-Moto</p></li>
-                    <li onclick="filterSelection('Emploi')"><p >Emploi</p></li>
+                    
+                    <li onclick="filterSelection('all')"><a href="#">Voir toutes</a></li>
+                    {% for categorie in categories %}
+                            <li onclick="filterSelection('{{categorie.cat_libelle}}')"><a href="#">{{categorie.cat_libelle}}</a></li>
+                    {% endfor %}
+                    {# <li onclick="filterSelection('Auto-Moto')"><p >Auto-Moto</p></li> #}
+                    {# <li onclick="filterSelection('Emploi')"><p >Emploi</p></li>
                     <li onclick="filterSelection('Animaux')"><p >Animaux</p></li>
                     <li onclick="filterSelection('Services')"><p >Services</p></li>
                     <li onclick="filterSelection('Vacances')"><p >Vacances</p></li>
                     <li onclick="filterSelection('Affaires pro')"><p >Affaires pro</p></li>
-                    <li onclick="filterSelection('Autres')"><p >Autres</p></li>
+                    <li onclick="filterSelection('Autres')"><p >Autres</p></li> #}
                 </ul>
             </nav>
         </div>    
