@@ -44,7 +44,7 @@
     </div>
 {% endblock header %}
 {% block content %}    
-    <div class="row container mx-auto cont-filter">
+    <div class="row container mx-auto cont-filter inf-scroll">
         {% for annonce in annonces %}
         <div class="  col-11 col-xl-3  col-lg-4 col-md-5 col-sm-7 center-annonce offset-1 offset-xl-0 offset-lg-0 offset-md-0 filterDiv {{annonce.cat_libelle}}" >
                 <div class="seeDetails">
@@ -67,7 +67,16 @@
         </div>
         {% endfor %}
     </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="{{page}}">1</a></li>
+          <li class="page-item"><a class="page-link" href="/{{page + 1}}">{{page + 1}}</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+        {{page}}
+        </ul>
+      </nav>
 {% endblock content %}
 {% block script %}
+        <script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.js"></script>
         <script src="{{basepath}}/script/script.js"></script>
 {% endblock script %}
