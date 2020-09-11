@@ -66,7 +66,7 @@ $router->map( 'POST', '/annonces/edit/[i:id]/[i:utilisateurid]', function($id, $
 });
 //map delete
 $router->map( 'GET', '/annonces/delete/[i:id]', function($id) {
-	echo "coucou";
+	
 	\App\Edit::supprimer($id);
 });
 
