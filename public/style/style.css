@@ -182,6 +182,18 @@ a {
   right: 0;
 }
 
+.nav-page {
+  margin-top: 100px;
+}
+.nav-page a {
+  background-color: var(--danger);
+  color: white;
+}
+.nav-page a:hover {
+  background-color: #da293e;
+  color: white;
+}
+
 /* details -----------------------*/
 .redirect {
   margin-left: 150px;

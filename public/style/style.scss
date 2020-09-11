@@ -182,6 +182,19 @@ a{
     right: 0;
 }
 
+.nav-page{
+    margin-top: 100px;
+    a{
+        background-color: var(--danger);
+        color: white;
+
+    }
+    a:hover{
+        background-color: darken($color: #df4759, $amount: 7%);
+        color: white;
+    }
+
+}
 
 /* details -----------------------*/
 
