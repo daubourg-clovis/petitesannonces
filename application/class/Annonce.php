@@ -57,7 +57,7 @@ class Annonce {
      //  var_dump($_FILES);
      //  var_dump($_POST);
      
-      // Partie de l'uploader d'image dans ls fichiers du serveur
+      // Partie de l'uploader d'image dans les fichiers du serveur
        $filename = $_FILES['upload']['tmp_name'];
        var_dump($_SERVER['DOCUMENT_ROOT']);
        $basename = $_SERVER["DOCUMENT_ROOT"];
@@ -140,22 +140,14 @@ class Annonce {
       $sql = $stmt->fetch();
       var_dump($sql);
       $lastutilisateurid= $sql->ID;
-    //  var_dump($lastid);
-       // $annonce= $stmt->fetchAll();
-     /*   $loader = new \Twig\Loader\FilesystemLoader('../application/templates');
-       $twig = new \Twig\Environment($loader, [
-       'cache' => false,
-         ]); */
+    
 
+//  Confirmation et modification de mail
       $body="Confirmez votre annonce <a href=" .SERVER_URI."/annonces/confirmer/$lastid >cliquez ici pour confirmer </a> <br> <a href=" .SERVER_URI."/annonces/edit/$lastid/$lastutilisateurid >cliquez ici pour modifier </a>";
       echo $body;
-      \App\Mail::mailto($usr_courriel, $body);
+      \App\Mail::mailto($usr_courriel, $body, $usr_prenom, $usr_nom);
       header('Location: /');
-       //  $loader = new \Twig\Loader\FilesystemLoader('../application/templates'); 
-      /*  $template = $twig->load('base.html.twig');
-         echo $template->render(array(
-             
-       )); */
+     
     }
 
     public static function modif(){
@@ -186,4 +178,43 @@ class Annonce {
 
   }
     
+  // fonction supprimer
+  public static function supprimer($id){
+
+    $db=new Db();
+  
+    $sql='DELETE FROM `annonce` WHERE ann_unique_id=:ann_unique_id';
+
+
+   
+    $stmt = $db->connect->prepare($sql);
+
+    $stmt->bindValue(':ann_unique_id', $id, \PDO::PARAM_INT );
+
+   $stmt->execute();
+
+   
+  
+   $sql='SELECT usr_courriel   FROM annonce INNER JOIN utilisateur AS u ON ID_utilisateur = u.ID WHERE ann_unique_id=:ann_unique_id';
+
+
+  
+   $stmt = $db->connect->prepare($sql);
+
+   $stmt->bindValue(':ann_unique_id', $id, \PDO::PARAM_INT );
+
+  $stmt->execute();
+   
+  $sql = $stmt->fetch();
+  var_dump($sql);
+  $usr_courriel= $sql->usr_courriel;
+ var_dump($usr_courriel);
+
+
+   $body="Votre annonce a été crée. <a href=" .SERVER_URI."/annonces/delete/$id >cliquez ici pour supprimer </a> ";
+   echo $body;
+   \App\Mail::mailto($usr_courriel, $body, $usr_prenom, $usr_nom);
+   header('Location: /');
+   
+ }
 } 
