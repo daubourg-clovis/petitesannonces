@@ -49,7 +49,7 @@
 {% block content %}    
     <div class="row container mx-auto cont-filter inf-scroll">
         {% for annonce in annonces %}
-        <div class="  col-11 col-xl-3  col-lg-4 col-md-5 col-sm-7 center-annonce offset-1 offset-xl-0 offset-lg-0 offset-md-0 filterDiv {{annonce.cat_libelle}}" >
+        <div class="  col-11 col-xl-3  col-lg-4 col-md-5 col-sm-7 center-annonce offset-1 offset-xl-0 offset-lg-0 offset-md-0 filterDiv {{annonce.cat_libelle}}" id="annonce">
                 <div class="seeDetails">
                     <div class="img-size">
                         {% if  annonce.ann_image_url is same as ('/img/') %}                        
@@ -70,16 +70,16 @@
         </div>
         {% endfor %}
     </div>
-    <nav aria-label="Page navigation example">
-        <ul class="pagination">
+    <nav aria-label="Page navigation example" class="nav-page">
+        <ul class="pagination justify-content-center">             
+            <li class="page-item"><a class="page-link" href="/{{page - 1}}/8">Précédent</a></li>
           {% for p in 1..nbpages %}
-              <li class="page-item"><a class="page-link" href="/{{p}}/8">{{p}}</a></li>
+              <li class="page-item pagination__next"><a class="page-link" href="/{{p}}/8" >{{p}}</a></li>
           {% endfor %}
-          {# <li class="page-item"><a class="page-link" href="/{{page + 1}}">{{page + 1}}</a></li> #}
-          {# <li class="page-item"><a class="page-link" href="#">3</a></li> #}
-        {{page}}
+          <li class="page-item"><a class="page-link" href="/{{page + 1}}/8">Suivant</a></li>
         </ul>
-      </nav>
+    </nav>
+
 {% endblock content %}
 {% block script %}
         <script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.js"></script>
