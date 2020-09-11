@@ -127,7 +127,7 @@ public static function modifier($id, $utilisateurid){
     }
 
 
-    // fonction de confirmation
+    // fonction de de validation d'annonce
     public static function confirmation($id){
       $db=new Db();
       $sql='UPDATE annonce SET  ann_est_valider= \'true\' WHERE ann_unique_id= :ann_unique_id';
@@ -179,7 +179,7 @@ public static function modifier($id, $utilisateurid){
 
        $body="Votre annonce a été crée. <a href=" .SERVER_URI."/annonces/delete/$id >cliquez ici pour supprimer </a> ";
        echo $body;
-       \App\Mail::mailto($usr_courriel, $body);
+       \App\Mail::mailto($usr_courriel, $body, $usr_prenom, $usr_nom);
        header('Location: /');
        
     }
