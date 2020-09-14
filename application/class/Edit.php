@@ -2,6 +2,8 @@
 
 namespace app;
 require_once('Db.php');
+define('BASE_PATH','') ;
+define('SERVER_URI', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME'] .':' . $_SERVER['SERVER_PORT'] . BASE_PATH) ;
 class Edit {
     public static function formulaireEdit ($id, $utilisateurid){
         $db=new Db();
@@ -139,7 +141,29 @@ public static function modifier($id, $utilisateurid){
 
       $stmt->bindValue(':ann_unique_id', $id, \PDO::PARAM_INT );
       $stmt->execute();
-      header('Location: /');
+
+      $sql='SELECT usr_courriel, usr_prenom, usr_nom   FROM annonce INNER JOIN utilisateur AS u ON ID_utilisateur = u.ID WHERE ann_unique_id=:ann_unique_id';
+
+
+      
+      $stmt = $db->connect->prepare($sql);
+
+      $stmt->bindValue(':ann_unique_id', $id, \PDO::PARAM_INT );
+
+     $stmt->execute();
+      
+     $sql = $stmt->fetch();
+     var_dump($sql);
+    //  déclarartion des variables sql
+     $usr_courriel= $sql->usr_courriel;
+     $usr_prenom=$sql->usr_prenom;
+     $usr_nom=$sql->usr_nom;
+
+
+      $body="Votre annonce a été crée. <a href=" .SERVER_URI."/annonces/delete/$id >cliquez ici pour supprimer </a> ";
+      echo $body;
+      \App\Mail::mailto($usr_courriel, $body, $usr_prenom, $usr_nom);
+       header('Location: /');
 
     }
 
@@ -161,25 +185,7 @@ public static function modifier($id, $utilisateurid){
 
        
       
-       $sql='SELECT usr_courriel   FROM annonce INNER JOIN utilisateur AS u ON ID_utilisateur = u.ID WHERE ann_unique_id=:ann_unique_id';
-
-
       
-       $stmt = $db->connect->prepare($sql);
-
-       $stmt->bindValue(':ann_unique_id', $id, \PDO::PARAM_INT );
-
-      $stmt->execute();
-       
-      $sql = $stmt->fetch();
-      var_dump($sql);
-      $usr_courriel= $sql->usr_courriel;
-
-
-
-       $body="Votre annonce a été crée. <a href=" .SERVER_URI."/annonces/delete/$id >cliquez ici pour supprimer </a> ";
-       echo $body;
-       \App\Mail::mailto($usr_courriel, $body, $usr_prenom, $usr_nom);
        header('Location: /');
        
     }
