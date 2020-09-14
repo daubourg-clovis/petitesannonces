@@ -178,43 +178,5 @@ class Annonce {
 
   }
     
-  // fonction supprimer
-  public static function supprimer($id){
-
-    $db=new Db();
-  
-    $sql='DELETE FROM `annonce` WHERE ann_unique_id=:ann_unique_id';
-
-
-   
-    $stmt = $db->connect->prepare($sql);
-
-    $stmt->bindValue(':ann_unique_id', $id, \PDO::PARAM_INT );
-
-   $stmt->execute();
-
-   
-  
-   $sql='SELECT usr_courriel   FROM annonce INNER JOIN utilisateur AS u ON ID_utilisateur = u.ID WHERE ann_unique_id=:ann_unique_id';
-
-
-  
-   $stmt = $db->connect->prepare($sql);
-
-   $stmt->bindValue(':ann_unique_id', $id, \PDO::PARAM_INT );
-
-  $stmt->execute();
-   
-  $sql = $stmt->fetch();
-  var_dump($sql);
-  $usr_courriel= $sql->usr_courriel;
- var_dump($usr_courriel);
-
-
-   $body="Votre annonce a été crée. <a href=" .SERVER_URI."/annonces/delete/$id >cliquez ici pour supprimer </a> ";
-   echo $body;
-   \App\Mail::mailto($usr_courriel, $body, $usr_prenom, $usr_nom);
-   header('Location: /');
-   
- }
+ 
 } 
