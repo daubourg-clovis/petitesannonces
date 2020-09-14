@@ -74,6 +74,13 @@ $router->map( 'GET', '/annonces/delete/[i:id]', function($id) {
 $router->map('GET', '/annonces/ajout/', function(){
 	\App\Annonce::formulaireajout();
 });
+// map pdf
+$router->map( 'GET', '/annonces/pdf/[i:id]', function($id) {
+	// var_dump($id);
+	\App\Pdf::pdf($id);
+	
+});
+
 
 // match current request url
 $match = $router->match();
